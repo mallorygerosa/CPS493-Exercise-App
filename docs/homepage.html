@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fitness Tracker App Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="title">
+        <strong>Home</strong>
+      </h1>
+      
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active': navBarIsActive }" @click="navBarIsActive = !navBarIsActive" >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+            <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
+          <div class="navbar-start">
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                Exercise
+              </a>
+
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  Log Activity
+                </a>
+                <a class="navbar-item">
+                  View Activity
+                </a>
+              </div>
+            </div>
+                          
+            <a class="navbar-item">
+                Community
+              </a>
+  
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary">
+                  <strong>Profile</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </nav>
+
+      <p class="subtitle">
+        I am <strong>very</strong> sleepy
+      </p>
+
+      <article class="message is-primary" :class="{'is-hidden' :!visible}">
+        <div class="message-header">
+          <p>Here's this</p>
+              <button class="delete" aria-label="delete" @click="close()"></button>
+        </div>
+        <div class="message-body">
+          Fuck fuck fuck fuck fuck fuck. <strong>Fuck fuck fuk</strong>, fuck
+          fuck fuk fuck fuck fuck fuck fck fuck fuck fuck fuc fuk fuk fuk fuk
+          <a>fuck fck fuck fukc</a> fuckf uck fukcf ukc <em>fuck fukc fukc kuckuc cku</em>, fuckufkufcufkuckfukcu.
+
+        </div>
+      </article>
+
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+
+        const VM = {
+            data() {
+                return {
+                    counter: 3,
+                    now: new Date().toLocaleString(),
+                    visible: true,
+                    navBarIsActive: false,
+
+                }
+            },
+            mounted() {
+                setInterval(() => this.now = new Date().toLocaleString() , 1000)
+            },
+            methods: {
+                close(){
+                    this.visible = false;
+                }
+            }
+        }
+
+        Vue.createApp(VM).mount('.container')
+
+      </script>
+  </body>
+
+</html>
