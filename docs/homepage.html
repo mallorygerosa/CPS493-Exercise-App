@@ -13,7 +13,7 @@
   <body>
     <div class="container">
       <h1 class="title">
-        <strong>Home</strong>
+        <strong>Fitness Tracker</strong>
       </h1>
       
       <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -26,10 +26,13 @@
           </a>
         </div>
 
-            <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
-          <div class="navbar-start">
-
+          <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
+            <div class="navbar-start">
+              <a class="navbar-item">
+                Home
+            </a>
             <div class="navbar-item has-dropdown is-hoverable">
+
               <a class="navbar-link">
                 Exercise
               </a>
@@ -42,12 +45,10 @@
                   View Activity
                 </a>
               </div>
-            </div>
-                          
+            </div>            
             <a class="navbar-item">
                 Community
-              </a>
-  
+            </a>
           </div>
 
           <div class="navbar-end">
@@ -64,19 +65,16 @@
       </nav>
 
       <p class="subtitle">
-        I am <strong>very</strong> sleepy
+        Subtitle
       </p>
 
       <article class="message is-primary" :class="{'is-hidden' :!visible}">
         <div class="message-header">
-          <p>Here's this</p>
+          <p>Message header</p>
               <button class="delete" aria-label="delete" @click="close()"></button>
         </div>
         <div class="message-body">
-          Fuck fuck fuck fuck fuck fuck. <strong>Fuck fuck fuk</strong>, fuck
-          fuck fuk fuck fuck fuck fuck fck fuck fuck fuck fuc fuk fuk fuk fuk
-          <a>fuck fck fuck fukc</a> fuckf uck fukcf ukc <em>fuck fukc fukc kuckuc cku</em>, fuckufkufcufkuckfukcu.
-
+          Message body
         </div>
       </article>
 
