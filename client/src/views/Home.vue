@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Home.vue template</h1>
+    <h1>This is the fitness tracker home page</h1>
   </div>
 </template>
 
