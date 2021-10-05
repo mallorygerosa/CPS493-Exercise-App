@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fitness Tracker App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <h1 class="title is-1 has-text-centered" style="margin:15px 0px 0px 0px">
+      <strong>Fitness Tracker</strong>
+    </h1>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+            <a href="home.html">
+              <img src="logo.png" alt="Logo" style="width:130px;height:50px;margin-left:30px;margin-right:20px">      
+            </a>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active': navBarIsActive }" @click="navBarIsActive = !navBarIsActive" >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+        <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
+          <div class="navbar-start" style="font-size: 20px;">
+
+            <a class="navbar-item" href="home.html">
+              Home
+            </a>
+
+             <a class="navbar-item">
+              About
+             </a>
+
+           <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="exercise.html">
+              Activity Feed
+            </a>
+    
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="exercise.html">
+                Personal Log
+              </a>
+              <a class="navbar-item" href="exercise.html">
+                Community Log
+              </a>
+              <a class="navbar-item" href="exercise.html">
+                Add Activity
+              </a>
+            </div>
+            </div>
+
+           <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="friends.html">
+              Friends
+            </a>
+    
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="friends.html">
+                Friend List
+              </a>
+              <a class="navbar-item" href="friends.html">
+                Add Friend
+              </a>
+            </div>
+            </div>
+         </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary" href="signup.html">
+                <strong>Sign up</strong>
+              </a>
+              <a class="button is-light" href="login.html">
+                <strong>Log In</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  </head>
+
+  <body>
+    <div class="container">
+   
+      <h1 class="subtitle is-3 has-text-centered">Recent Activity</h1>
+      
+      <article class="media">
+        <div class="media-content">
+          <div class="content has-text-centered">
+            <p>
+              <strong>User</strong> <small>Date</small> 
+              <br>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+            </p>
+            <p>
+              <strong>User</strong> <small>Date</small> 
+              <br>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+            </p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+
+        const VM = {
+            data() {
+                return {
+                    counter: 3,
+                    now: new Date().toLocaleString(),
+                    visible: true,
+                    navBarIsActive: false,
+
+                }
+            },
+            mounted() {
+                setInterval(() => this.now = new Date().toLocaleString() , 1000)
+            },
+            methods: {
+                close(){
+                    this.visible = false;
+                }
+            }
+        }
+
+        Vue.createApp(VM).mount('.container')
+
+      </script>
+  </body>
+
+</html>

@@ -12,16 +12,16 @@
 
           <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
             <div class="navbar-start">
-              <a class="navbar-item">
+              <a class="navbar-item" href="Home.vue">
                 Home
              </a>
-             <a class="navbar-item">
+             <a class="navbar-item" href="Exercise.vue">
                 Exercise
              </a>         
              <a class="navbar-item">
                 Friends
              </a>
-             <a class="navbar-item">
+             <a class="navbar-item" href="Profile.vue">
                 Profile
              </a>
            </div>

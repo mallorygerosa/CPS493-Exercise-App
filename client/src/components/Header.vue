@@ -1,6 +1,6 @@
 <template>
     <h1>
-        <a> 
+        <a href="/"> 
             <b>
                 <!-- <img alt="Logo" src="../assets/logo.png" style="30px"> -->
                 Fitness Tracker
