@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<html>
+<html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
 
   <head>
     <meta charset="utf-8">
@@ -14,50 +12,47 @@
     </h1>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-            <a href="home.html">
-              <img src="logo.png" alt="Logo" style="width:130px;height:50px;margin-left:30px;margin-right:20px">      
-            </a>
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active': navBarIsActive }" @click="navBarIsActive = !navBarIsActive" >
+        <a href="home.html">
+          <img src="logo.png" alt="Logo" style="width:130px;height:50px;margin-left:30px;margin-right:20px">
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+          :class="{ 'is-active': navBarIsActive }" @click="navBarIsActive = !navBarIsActive">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
-
-        <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
-          <div class="navbar-start" style="font-size: 20px;">
-
-            <a class="navbar-item" href="home.html">
-              Home
-            </a>
-
-             <a class="navbar-item">
-              About
-             </a>
-
-           <div class="navbar-item has-dropdown is-hoverable">
+  
+      <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
+        <div class="navbar-start" style="font-size:20px;">
+  
+          <a class="navbar-item" href="home.html">
+            Home
+          </a>
+  
+          <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link" href="exercise.html">
               Activity Feed
             </a>
-    
+  
             <div class="navbar-dropdown">
               <a class="navbar-item" href="exercise.html">
-                Personal Log
+                Personal Activity
               </a>
               <a class="navbar-item" href="exercise.html">
-                Community Log
+                Community Activity
               </a>
-              <a class="navbar-item" href="exercise.html">
+              <a class="navbar-item" href="addexercise.html">
                 Add Activity
               </a>
             </div>
-            </div>
-
-           <div class="navbar-item has-dropdown is-hoverable">
+          </div>
+  
+          <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link" href="friends.html">
               Friends
             </a>
-    
+  
             <div class="navbar-dropdown">
               <a class="navbar-item" href="friends.html">
                 Friend List
@@ -66,9 +61,12 @@
                 Add Friend
               </a>
             </div>
-            </div>
-         </div>
-
+          </div>
+          <a class="navbar-item" href="profile.html">
+            Profile
+          </a>
+        </div>
+  
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
@@ -81,61 +79,95 @@
             </div>
           </div>
         </div>
-
+  
       </div>
     </nav>
   </head>
-  
-  <body>
 
-    <section class="section">
-      <div id="profile" class="container">
-        <div class="card">
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <figure class="image is-128x128">
-                  <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="Placeholder">
-                </figure> 
-                <p class="title is-3"> Name </p>
-                <p class="subtitle is-4"> Username </p>
-                <p class="title is-6"> Email </p>
-                <p>About Me</p>
-                <p class="has-text-right">Edit Profile</p>
-              </div>
-            </div>
+<body>
+
+  <div class="container">
+    <br>
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content has-text-centered">
+            <figure class="image is-128x128 is-inline-block">
+              <img class="is-rounded center" src="https://bulma.io/images/placeholders/128x128.png" alt="Placeholder">
+            </figure>
+            <p class="title is-3"> Name </p>
+            <p class="subtitle is-4"> Username </p>
+            <p class="title is-6"> Email </p>
+            <p>This is placeholder text for this user's "about me" information</p>
+            <p class="subtitle is-6 has-text-right">
+              <a id="launch_modal">Edit Profile</a>
+            </p>
           </div>
         </div>
       </div>
-      
-    </section>
-    <script src="https://unpkg.com/vue@next"></script>
-    <script>
+    </div>
+  </div>
 
-        const VM = {
-            data() {
-                return {
-                    counter: 3,
-                    now: new Date().toLocaleString(),
-                    visible: true,
-                    navBarIsActive: false,
+  <div id="edit_profile" class="modal">
+    <div class="modal-background"></div>
+    <div class="model-content">
+      <form action class="box">
 
-                }
-            },
-            mounted() {
-                setInterval(() => this.now = new Date().toLocaleString() , 1000)
-            },
-            methods: {
-                close(){
-                    this.visible = false;
-                }
-            }
+        <div class="field">
+          <label class="label">Change Username</label>
+          <div class="control">
+            <input class="input is-success" type="text" placeholder="Username">
+          </div>
+          <p class="help is-success">Username is available</p>
+        </div>
+
+        <div class="field">
+          <label class="label">New Password</label>
+          <div class="control">
+            <input class="input" type="password" placeholder="********" required>
+          </div>
+          <p class="help is-danger">Password must have 8 or more characters</p>
+        </div>
+
+        <div class="field">
+          <label class="label">Confirm Password</label>
+          <div class="control">
+            <input class="input" type="password" placeholder="********" required>
+          </div>
+          <p class="help is-danger">Passwords don't match</p>
+        </div>
+
+        <!-- <div class="field">
+            <label class="label">Edit profile picture</label>
+          </div> -->
+
+      </form>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const VM = {
+      data() {
+        return {
+          counter: 3,
+          now: new Date().toLocaleString(),
+          visible: true,
+          navBarIsActive: false,
+
         }
+      },
+      mounted() {
+        setInterval(() => this.now = new Date().toLocaleString(), 1000)
+      },
+      methods: {
+        close() {
+          this.visible = false;
+        }
+      }
+    }
 
-        Vue.createApp(VM).mount('.container')
+    Vue.createApp(VM).mount('.container')
+  </script>
+</body>
 
-      </script>
-  </body>
-
-  </body>
 </html>
