@@ -1,90 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fitness Tracker App</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  <h1 class="title is-1 has-text-centered" style="margin:15px 0px 0px 0px">
-    <strong>Fitness Tracker</strong>
-  </h1>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a href="home.html">
-        <img src="logo.png" alt="Logo" style="width:130px;height:50px;margin-left:30px;margin-right:20px">
-      </a>
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-        :class="{ 'is-active': navBarIsActive }" @click="navBarIsActive = !navBarIsActive">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
-      <div class="navbar-start" style="font-size:20px;">
-
-        <a class="navbar-item" href="home.html">
-          Home
-        </a>
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="exercise.html">
-            Activity Feed
-          </a>
-
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="exercise.html">
-              Personal Activity
-            </a>
-            <a class="navbar-item" href="exercise.html">
-              Community Activity
-            </a>
-            <a class="navbar-item" href="addexercise.html">
-              Add Activity
-            </a>
-          </div>
-        </div>
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="friends.html">
-            Friends
-          </a>
-
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="friends.html">
-              Friend List
-            </a>
-            <a class="navbar-item" href="friends.html">
-              Add Friend
-            </a>
-          </div>
-        </div>
-        <a class="navbar-item" href="profile.html">
-          Profile
-        </a>
-      </div>
-
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-success" href="signup.html">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light" href="login.html">
-              <strong>Log In</strong>
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </nav>
-</head>
-
-<body>
+<template>
+    <div class="friends">
   <h1 class="subtitle is-2 has-text-centered">Friends</h1>
   <div class="container">
 
@@ -175,37 +90,21 @@
           <div class="control">
             <input class="input is-success" type="text" placeholder="Username">
           </div>
-          <button class="button help is-success">Add User</p>
+          <button class="button help is-success">Add User</button>
         </div>
         
       </form>
     </div>
   </div>
 
-  <script src="https://unpkg.com/vue@next"></script>
-  <script>
-    const VM = {
-      data() {
-        return {
-          counter: 3,
-          now: new Date().toLocaleString(),
-          visible: true,
-          navBarIsActive: false,
+</div>
+</template>
+<script>
 
-        }
-      },
-      mounted() {
-        setInterval(() => this.now = new Date().toLocaleString(), 1000)
-      },
-      methods: {
-        close() {
-          this.visible = false;
-        }
-      }
-    }
-
-    Vue.createApp(VM).mount('.container')
-  </script>
-</body>
-
-</html>
+export default {
+  name: 'Friends',
+  components: {
+    
+  }
+}
+</script>

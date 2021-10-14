@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <h1 class="title is-1 has-text-centered" style="margin:15px 0px 0px 0px">
     <strong>Fitness Tracker</strong>
+
   </h1>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
@@ -70,7 +71,7 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary" href="signup.html">
+            <a class="button is-success" href="signup.html">
               <strong>Sign up</strong>
             </a>
             <a class="button is-light" href="login.html">
@@ -85,20 +86,25 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1 class="subtitle is-3 has-text-centered">Home</h1>
+  <section class="hero is-success is-fullheight">
+    <div class="hero-head has-text-centered" style="margin:0px 120px -50px 120px;">
+      <section class="section">
+        <h1 class="title is-1">Welcome, <br> To Your Own Personal Activity Hub</h1>
+        <h2 class="subtitle is-3">
+          Log your activity, share it with others, and see what your friends are up to, all in one place.
+        </h2>
+        <a href="exercise.html">
+          <button class="button is-white">Get Started</button>
+        </a>
 
-    <article class="media">
-      <div class="media-content">
-        <div class="content has-text-centered">
-          <p>
-            This is placeholder text for the home page which will contain information about the app.
-          </p>
-        </div>
-      </div>
-    </article>
+      </section>
+    </div>
+    <div class="hero-foot">
+    </div>
 
-  </div>
+  </section>
+
+
 
   <script src="https://unpkg.com/vue@next"></script>
   <script>
