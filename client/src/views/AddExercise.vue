@@ -37,9 +37,8 @@
           
           <div class="buttons is-grouped is-centered">
             <button class="button is-success">Submit</button>
-            <a href="exercise.html">
-            <button class="button is-light">Cancel</button>
-            </a>
+            <a class="button is-light" href="./">Cancel</a>
+
           </div>
         </form>
       </div>
@@ -49,7 +48,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+      name: 'AddExercise',
+        components: {
+  }
+}
 </script>
 
 <style>

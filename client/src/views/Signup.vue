@@ -69,11 +69,11 @@
 <script>
 import Session from "../services/session";
 export default {
-  data: () => ({
-    email: null,
-    password: null,
-    Session,
-  }),
+  data: () => {
+    return ({
+      Session
+    })
+  },
   methods: {
     signup() {
       //   this.Session.Signup(this.email, this.password);

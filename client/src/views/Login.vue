@@ -32,12 +32,12 @@
           <div class="control">
             <div class="buttons is-grouped is-centered">
               <button class="button is-success">Log In</button>
-              <a class="button is-light" href="./">Cancel</a>
+              <router-link class="button is-light" to="./">Cancel</router-link>
             </div>
           </div>
         </div>
 
-        <a href="./Signup">Don't have an account? Sign up!</a>
+        <router-link to="./Signup">Don't have an account? Sign up!</router-link>
       </form>
     </div>
   </div>

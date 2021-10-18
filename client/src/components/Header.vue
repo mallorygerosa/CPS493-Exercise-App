@@ -29,7 +29,7 @@
             <div class="navbar-dropdown">
               <router-link class="navbar-item" to="/Exercise"> Personal Activity </router-link>
               <router-link class="navbar-item" to="/Exercise"> Community Activity </router-link>
-              <a class="navbar-item" href="/AddExercise"> Add Activity </a>
+              <router-link class="navbar-item" to="/AddExercise"> Add Activity </router-link>
             </div>
           </div>
 

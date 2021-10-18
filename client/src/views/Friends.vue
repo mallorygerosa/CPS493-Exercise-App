@@ -2,8 +2,11 @@
     <div class="friends">
   <h1 class="subtitle is-2 has-text-centered">Friends</h1>
   <div class="container">
+    <a href="/AddFriends"> 
 
     <button class="button is-success">Add Friend</button>
+    </a>
+
     <button class="button is-light">Edit Friend List</button>
 
     <div class="card">

@@ -2,8 +2,8 @@
 <div class="exercise">
     <h1 class="subtitle is-2 has-text-centered">Recent Activity</h1>
   <div class="container">
-    <a href="addexercise.html" class="button is-success">
-      Add New Activity</a>
+    <router-link href="/AddExercise" class="button is-success">
+      Add New to</router-link>
     <div class="card">
       <div class="card-content">
         <article class="post">
