@@ -3,6 +3,7 @@ import Home from '../views/Home.vue';
 import Exercise from '../views/Exercise.vue';
 import Friends from '../views/Friends.vue';
 import Profile from '../views/Profile.vue';
+import Session from'../services/session';
 
 
 const routes = [
@@ -24,7 +25,18 @@ const routes = [
   {
     path: '/profile',
     name: 'Profile',
-    component: Profile
+    component: Profile,
+    meta: { requiresLogin: true}
+  },
+  {
+    path:'/login',
+    name: 'Login',
+    component: ()=> import('../views/Login.vue')
+  },
+  {
+    path:'/signup',
+    name: 'Signup',
+    component: ()=> import('../views/Signup.vue')
   }
 ]
 
@@ -32,5 +44,13 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  if(to.meta.requiresLogin && !Session.user){
+      next('/login');
+  }else{
+      next();
+  }
+} )
 
 export default router
