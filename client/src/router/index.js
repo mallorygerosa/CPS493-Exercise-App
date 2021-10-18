@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue';
 import Exercise from '../views/Exercise.vue';
+import AddExercise from '../views/AddExercise.vue';
 import Friends from '../views/Friends.vue';
+import AddFriend from '../views/AddFriend.vue';
 import Profile from '../views/Profile.vue';
 import Session from'../services/session';
 
@@ -18,9 +20,19 @@ const routes = [
     component: Exercise
   },
   {
+    path: '/addexercise',
+    name: 'AddExercise',
+    component: AddExercise
+  },
+  {
     path: '/friends',
     name: 'Friends',
     component: Friends
+  },
+  {
+    path: '/addfriend',
+    name: 'AddFriend',
+    component: AddFriend,
   },
   {
     path: '/profile',

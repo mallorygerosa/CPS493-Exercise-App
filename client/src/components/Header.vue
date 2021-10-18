@@ -38,7 +38,7 @@
 
             <div class="navbar-dropdown">
               <router-link class="navbar-item" to="/Friends"> Friend List </router-link>
-              <router-link class="navbar-item" to="/Friends"> Add Friend </router-link>
+              <router-link class="navbar-item" to="/AddFriend"> Add Friend </router-link>
             </div>
           </div>
           <router-link class="navbar-item" is-tab to="/Profile"> Profile </router-link>

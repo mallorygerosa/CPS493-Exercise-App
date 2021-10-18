@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="login">
     <div class="columns is-centered">
       <form class="box" style="margin-top: 30px" @submit.prevent="login()">
         <p class="title is-1 has-text-centered">Log In</p>
@@ -31,7 +31,7 @@
         <div class="field">
           <div class="control">
             <div class="buttons is-grouped is-centered">
-              <button class="button is-success">Log In</button>
+              <router-link class="button is-success" to="/Profile">Log In</router-link>
               <router-link class="button is-light" to="./">Cancel</router-link>
             </div>
           </div>

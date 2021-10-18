@@ -4,14 +4,17 @@ const session = {
     Login(email, password){
 
         this.user = {
-            FirstName: 'Moshe',
-            LastName: 'pl',
+            FirstName: 'Admin Mallory',
+            LastName: 'Gerosa ',
             Password: password,
             id: 613,
         }
     },
     Signup(){
         
+    },
+    Logout(){
+        this.user=null
     }
 };
 

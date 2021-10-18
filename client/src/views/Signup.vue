@@ -6,16 +6,16 @@
 
         <div class="field">
           <label class="label">Username</label>
-          <div class="control has-icons-left">
+          <div class="control">
             <input
               class="input is-success"
               type="text"
               placeholder="User"
               required
             />
-            <span class="icon is-small is-left">
+            <!-- <span class="icon is-small is-left">
               <i href="" class="fas fa-envelope"></i>
-            </span>
+            </span> -->
           </div>
         </div>
 
@@ -70,9 +70,9 @@
 import Session from "../services/session";
 export default {
   data: () => {
-    return ({
-      Session
-    })
+    return {
+      Session,
+    };
   },
   methods: {
     signup() {
