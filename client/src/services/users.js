@@ -4,7 +4,7 @@ import { NotificationProgrammatic } from "@oruga-ui/oruga-next/dist/esm/notifica
 
 const session = {
     user: null,
-    messages: [],       // {text: string, type: string }
+    messages: [], 
     toRoute: '/feed',
     async Login(handle, password){
 
@@ -30,7 +30,6 @@ const session = {
             variant: 'danger',
             type: 'danger',
             closable: true,
-
         })
 
     }
