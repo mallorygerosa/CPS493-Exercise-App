@@ -4,40 +4,45 @@
       <form class="box" style="margin-top: 30px" @submit.prevent="login()">
         <p class="title is-1 has-text-centered">Log In</p>
 
-        <div class="field">
-          <label class="label">Username</label>
-          <div class="control">
-            <input
-              class="input is-success"
-              type="text"
-              placeholder="User"
-              required
-            />
-          </div>
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+            <input class="input" type="email" placeholder="email@example.com" v-model="email">
+            <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+            </span>
+            <!-- <span class="icon is-small is-right">
+            <i class="fas fa-check"></i>
+            </span> -->
+        </p>
         </div>
 
         <div class="field">
-          <label class="label">Password</label>
-          <div class="control">
-            <input
-              class="input is-success"
-              type="password"
-              placeholder="**********"
-              required
-            />
-          </div>
+        <p class="control has-icons-left">
+            <input class="input" type="password" placeholder="Password" v-model="password">
+            <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+            </span>
+        </p>
         </div>
 
         <div class="field">
+        <p class="control">
+            <button class="button is-success">
+            Login
+            </button>
+        </p>
+        </div>
+        
+        <!-- Tied to register, unfinished
+          <div class="field">
           <div class="control">
             <div class="buttons is-grouped is-centered">
               <router-link class="button is-success" to="/Profile">Log In</router-link>
-              <router-link class="button is-light" to="./">Cancel</router-link>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <router-link to="./Signup">Don't have an account? Sign up!</router-link>
+        <!-- <router-link to="./Register">Don't have an account? Sign up!</router-link> -->
       </form>
     </div>
   </div>

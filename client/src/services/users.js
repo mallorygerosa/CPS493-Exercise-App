@@ -1,38 +1,35 @@
-import router from "../router";
-import { Login } from "./users";
-import { NotificationProgrammatic } from "@oruga-ui/oruga-next/dist/esm/notification";
+import { api } from "./myFetch";
+// Get all users
+export function GetAll() { return api('users'); }
 
-const session = {
-    user: null,
-    messages: [], 
-    toRoute: '/feed',
-    async Login(handle, password){
+// Get user by user ID
+export function Get(user_id) { return  api('users/' + user_id); }
 
-        try {
-            const response = await Login(handle, password);
+// Get user by handle
+export function GetByHandle(handle) { return  api('users/byhandle/' + handle); } 
 
-            this.user = response.user;
-    
-            router.push(this.toRoute);
-                
-        } catch (error) {
-            this.Error(error);
-        }
-    },
-    Error(error){
-        console.error(error);
-        const msg = error.msg ?? error;
+// Add new user
+export function Add(user) {
+     return api('users/register', user);
+}
 
-        this.messages.push({ text: msg, type: 'warning' })
-        NotificationProgrammatic.open({
-            duration: 5000,
-            message: msg,
-            variant: 'danger',
-            type: 'danger',
-            closable: true,
-        })
+// Update user by user ID and user
+export function Update(user_id, user) {
+    return api('users/' + user_id, user, 'PATCH');
+}
 
-    }
-};
+// Delete user by user ID
+export function Delete(user_id) {
+    return api('users/' + user_id, {}, 'DELETE');
+}
 
-export default session;
+// Log in by user handle and user password
+export function Login(handle, password){
+    return api('users/login', { handle, password });
+}
+// VERY unfinished
+// Register new user by user handle and user password
+// export function Register(handle, password){
+//     return api('users/register', { firstname, lastname, handle, password, email });
+//     // return api('users/login', { handle, password});
+// }

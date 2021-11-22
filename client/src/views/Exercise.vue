@@ -1,3 +1,5 @@
+<!-- Replaced by feed page -->
+
 <template>
 <div class="exercise">
     <h1 class="subtitle is-2 has-text-centered">Recent Activity</h1>

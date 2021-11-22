@@ -1,12 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue';
-import Exercise from '../views/Exercise.vue';
-import AddExercise from '../views/AddExercise.vue';
-import Friends from '../views/Friends.vue';
-import AddFriend from '../views/AddFriend.vue';
-import Profile from '../views/Profile.vue';
 import Session from'../services/session';
-
+import Home from '../views/Home.vue';
+import Feed from '../views/Feed.vue';
 
 const routes = [
   {
@@ -15,29 +10,47 @@ const routes = [
     component: Home
   },
   {
-    path: '/exercise',
-    name: 'Exercise',
-    component: Exercise
+    path: '/feed',
+    name: 'Feed',
+    component: Feed,
+    meta: { requiresLogin: true }
   },
   {
-    path: '/addexercise',
-    name: 'AddExercise',
-    component: AddExercise
-  },
-  {
-    path: '/friends',
-    name: 'Friends',
-    component: Friends
-  },
-  {
-    path: '/addfriend',
-    name: 'AddFriend',
-    component: AddFriend,
-  },
+    path: '/about',
+    name: 'About',
+    component: () => import('../views/About.vue')
+},
+  // {
+  //   path: '/exercise',
+  //   name: 'Exercise',
+  //   component: Exercise
+  // meta: { requiresLogin: true }
+  // },
+  // {
+  //   path: '/addexercise',
+  //   name: 'AddExercise',
+  //   component: AddExercise,
+  // meta: { requiresLogin: true }
+
+  // },
+  // {
+  //   path: '/friends',
+  //   name: 'Friends',
+  //   component: Friends,
+  //   meta: { requiresLogin: true }
+
+  // },
+  // {
+  //   path: '/addfriend',
+  //   name: 'AddFriend',
+  //   component: AddFriend,
+  //   meta: { requiresLogin: true }
+    
+  // },
   {
     path: '/profile',
     name: 'Profile',
-    component: Profile,
+    component: () => import('../views/Profile.vue'),
     meta: { requiresLogin: true}
   },
   {
@@ -46,9 +59,9 @@ const routes = [
     component: ()=> import('../views/Login.vue')
   },
   {
-    path:'/signup',
-    name: 'Signup',
-    component: ()=> import('../views/Signup.vue')
+    path:'/register',
+    name: 'Register',
+    component: ()=> import('../views/Register.vue')
   }
 ]
 

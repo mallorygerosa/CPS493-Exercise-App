@@ -53,4 +53,9 @@ export default {
 </script>
 
 <style>
+    button.delete {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
 </style>

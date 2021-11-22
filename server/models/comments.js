@@ -4,6 +4,7 @@ const { client } = require('./mongo');
 const collection = client.db(process.env.MONGO_DB).collection('posts');
 module.exports.collection = collection;
 
+// Get a comment by ID
 async function Get(id) {
     const results = await collection.findOne({ "comments._id":  new ObjectId(id)}, { projection: {"comments.$": 1}});
     if(results?.comments?.length){
@@ -12,7 +13,7 @@ async function Get(id) {
         return null;
     } 
 }
-
+// Add a comment by ID and comment
 function Add(postId, comment) {
     comment.created_at = new Date();
     comment._id = new ObjectId();
@@ -22,7 +23,7 @@ function Add(postId, comment) {
         { $push : { comments: comment } }
     ).then(x=> ({ ...x, insertedComment: comment }));
 }
-
+// Update comment by ID and comment
 async function Update(id, comment) {
     const oldComment = await Get(id);
     if(!comment) throw { code: 404, msg: 'Comment not found'};
@@ -33,7 +34,7 @@ async function Update(id, comment) {
         { $set : { "comments.$": newComment } }
     );  
 }
-
+// Delete comment by ID
 function Delete(id) {
     return collection.updateOne(
         { "comments._id":  new ObjectId(id) },
