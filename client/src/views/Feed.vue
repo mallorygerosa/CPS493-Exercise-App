@@ -17,7 +17,7 @@
 
 <script>
 import Post from '../components/Post.vue';
-import session from "../services/session";
+import Session from "../services/session";
 import { GetWall } from "../services/posts";
 export default {
     components: {
@@ -27,7 +27,7 @@ export default {
         posts: []
     }),
     async mounted(){
-        this.posts = await GetWall(session.user.handle)
+        this.posts = await GetWall(Session.user.handle)
     }
 }
 </script>

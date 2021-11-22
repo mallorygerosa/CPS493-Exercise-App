@@ -6,10 +6,10 @@ const session = {
     user: null,
     messages: [],       // {text: string, type: string }
     toRoute: '/feed',
-    async Login(handle, password){
+    Login(handle, password){
 
         try {
-            const response = await Login(handle, password);
+            const response = Login(handle, password);
 
             this.user = response.user;
     
@@ -37,3 +37,5 @@ const session = {
 };
 
 export default session;
+
+//export function

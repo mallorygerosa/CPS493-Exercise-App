@@ -38,7 +38,7 @@ app
 
     })
 
-    // Delete user ID
+    // Delete user by ID
     .delete("/:user_id", (req, res, next) =>{
 
         model   .Delete(req.params.user_id)

@@ -13,9 +13,9 @@
           Log your activity, share it with others, and see what your friends are
           up to, all in one place.
         </h2>
-        <router-link to="/Exercise">
+        <!-- <router-link to="/Register">
           <button class="button is-white">Get Started</button>
-        </router-link>
+        </router-link> -->
       </section>
     </div>
     <div class="hero-foot"></div>

@@ -24,12 +24,12 @@
           <router-link class="navbar-item" is-tab to="/" exact> Home </router-link>
 
           <div class="navbar-item has-dropdown is-hoverable">
-            <router-link class="navbar-link" is-tab to="/Exercise"> Activity Feed </router-link>
+            <router-link class="navbar-link" is-tab to="/Feed"> Activity Feed </router-link>
 
             <div class="navbar-dropdown">
-              <router-link class="navbar-item" to="/Exercise"> Personal Activity </router-link>
-              <router-link class="navbar-item" to="/Exercise"> Community Activity </router-link>
-              <router-link class="navbar-item" to="/AddExercise"> Add Activity </router-link>
+              <router-link class="navbar-item" to="/Feed"> Personal Activity </router-link>
+              <router-link class="navbar-item" to="/Feed"> Community Activity </router-link>
+              <router-link class="navbar-item" to="/Feed"> Add Activity </router-link>
             </div>
           </div>
 

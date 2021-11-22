@@ -1,4 +1,3 @@
-const { result } = require('lodash');
 const bcrypt = require('bcrypt');
 const { ObjectId } = require('bson');
 const { client } = require('./mongo');

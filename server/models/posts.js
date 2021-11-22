@@ -12,7 +12,7 @@ const list = [
         alt: "Placeholder image",
         caption: "Lorem Ipsom",
         time: Date(),
-        user_handle: "@johnsmith",
+        user_handle: "@johnny",
         isPublic: true,
     },
     { 
@@ -20,7 +20,7 @@ const list = [
         alt: "Placeholder image",
         caption: "We want Moshiach Now",
         time: Date(),
-        user_handle: "@vp",
+        user_handle: "@janey",
         isPublic: true,
     },
     { 
@@ -28,7 +28,7 @@ const list = [
         alt: "Purim in SUB #100",
         caption: "What a purim to remember",
         time: Date(),
-        user_handle: "@JewPaltz",
+        user_handle: "@mgerosa",
         isPublic: true,
     },
     { 
@@ -36,7 +36,7 @@ const list = [
         alt: "Mug with slogan",
         caption: "Never be afraid to try something new. The ark was built by amateurs and the Titanic by professionals",
         time: Date(),
-        user_handle: "@JewPaltz",
+        user_handle: "@mgerosa",
         isPublic: true,
     },
     { 
@@ -44,7 +44,7 @@ const list = [
         alt: "The family",
         caption: "The whole family. All the kids hiking together. Sukkot Vacation.",
         time: Date(),
-        user_handle: "@JewPaltz",
+        user_handle: "@mgerosa",
         isPublic: true,
     },
 ];

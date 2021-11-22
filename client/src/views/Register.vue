@@ -1,4 +1,4 @@
-<!-- VERY unfinished -->
+<!-- VERY unfinished 
 <template>
   <div class="container">
     <div class="columns is-centered">
@@ -8,12 +8,12 @@
         <div class="field">
           <label class="label">Username</label>
           <div class="control">
-            <input
+            <input>
               class="input is-success"
               type="text"
               placeholder="User"
               required
-            />
+            </input>
             <span class="icon is-small is-left">
               <i href="" class="fas fa-envelope"></i>
             </span>
@@ -23,36 +23,36 @@
         <div class="field">
           <label class="label">First name</label>
           <div class="control">
-            <input
+            <input>
               class="input is-success"
               type="text"
               placeholder="John Goblikon"
               required
-            />
+            </input>
           </div>
         </div>
 
         <div class="field">
           <label class="label">Last name</label>
           <div class="control">
-            <input
+            <input>
               class="input is-success"
               type="text"
               placeholder="Goblikon"
               required
-            />
+            </input>
           </div>
         </div>
 
         <div class="field">
           <label class="label">Email</label>
           <div class="control">
-            <input
+            <input>
               class="input is-success"
               type="email"
               placeholder="user@example.com"
               required
-            />
+            </input>
             <span class="icon is-small is-left">
             <i class="fas fa-envelope"></i>
             </span>
@@ -62,12 +62,12 @@
         <div class="field">
           <label class="label">Password</label>
           <div class="control">
-            <input
+            <input>
               class="input is-success"
               type="text"
               placeholder="**********"
               required
-            />
+            </input>
             <span class="icon is-small is-left">
             <i class="fas fa-lock"></i>
             </span>
@@ -77,12 +77,12 @@
         <div class="field">
           <label class="label">Confirm password</label>
           <div class="control">
-            <input
+            <input>
               class="input is-success"
               type="text"
               placeholder="**********"
               required
-            />
+            </input>
           </div>
         </div>
         <div class="field">
@@ -100,8 +100,8 @@
 import Session from "../services/session";
 import { GetByHandle } from '../services/users';
 
-// const newUser = ()=> ({ 
-//   user: Session.user, user_handle: Session.user.handle user_email: Session.user.email })
+const newUser = ()=> ({ 
+user: Session.user, user_handle: Session.user.handle user_email: Session.user.email })
 
 
 export default {
@@ -117,7 +117,7 @@ export default {
     checkUsername() {
       if ( !GetByHandle(this.handle)){
       return true;
-      }else {return false}
+      } else {return false}
     },
     checkPassword() {
 
@@ -132,3 +132,4 @@ export default {
   },
 };
 </script>
+-->
