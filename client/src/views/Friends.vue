@@ -5,7 +5,6 @@
       <router-link to="/AddFriend" class="button is-success">
         Add Friend
       </router-link>
-      <button class="button is-light">Edit Friend List</button>
 
       <div class="card">
         <div class="card-content">
@@ -72,31 +71,12 @@
                 </div>
               </article>
             </div>
-            <!-- Column 3 -->
-            <div class="column is-one-third">
-              <article class="media">
-                <div class="media-left">
-                  <figure class="image is-96x96">
-                    <img
-                      class="is-rounded"
-                      src="https://bulma.io/images/placeholders/96x96.png"
-                      alt="Placeholder"
-                    />
-                  </figure>
-                </div>
-                <div class="media-content">
-                  <p class="title is-4">Name</p>
-                  <p class="subtitle is-5">Username</p>
-                  <p class="subtitle is-6 has-text-left">
-                    <a id="launch_modal">View Profile</a>
-                  </p>
-                </div>
-              </article>
-            </div>
+          </div>
           </div>
         </div>
       </div>
     </div>
+<!--     
     <div id="add_friend" class="modal">
       <div class="modal-background"></div>
       <div class="model-content">
@@ -115,7 +95,7 @@
         </form>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 <script>
 export default {

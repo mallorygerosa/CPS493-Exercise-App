@@ -19,7 +19,7 @@ Content-Type: application/json
     "src": "https://apod.nasa.gov/apod/image/2111/MilkyWayWaterfall_XieJie_960.jpg",
     "alt": "A Waterfall and the Milky Way",
     "caption": "A Waterfall and the Milky Way",
-    "user_handle": "@JewPaltz",
+    "user_handle": "@mgerosa",
     "isPublic": true
 }
 
@@ -40,7 +40,7 @@ Content-Type: application/json
         "emails": [
             "potus@wh.gov"
         ],
-        "following": [ { "handle": "@johnsmith", "isApproved": true } ]
+        "following": [ { "handle": "@johnny", "isApproved": true } ]
     }
 
 ###
@@ -48,6 +48,9 @@ POST http://localhost:3100/users/login
 Content-Type: application/json
 
     { 
-        "handle": "@potus",
-        "password": "password"
+        "handle": "@mgerosa",
+        "password": "mypassword"
     }
+###
+ http://localhost:3100/users/seed
+

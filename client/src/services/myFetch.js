@@ -1,4 +1,4 @@
-import session from "./session";
+import Session from "./session";
 
 const API_ROOT = process.env.VUE_APP_API_ROOT ?? 'http://localhost:3100/';
 
@@ -24,6 +24,6 @@ export async function api(url, data = null, method = null){
         }
         return await response.json();
     } catch (err) {
-        session.Error(err);
+        Session.Error(err);
     }
 }

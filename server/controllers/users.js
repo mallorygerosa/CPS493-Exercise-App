@@ -4,7 +4,7 @@ const friends = require("../models/friends");
 
 const app = express.Router();
 
-// Use models/users functions
+// Uses models/users functions
 app
     // Get user by user ID
     .get("/", (req, res, next) =>{

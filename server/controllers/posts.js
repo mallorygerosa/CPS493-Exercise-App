@@ -4,7 +4,7 @@ const comments = require("../models/comments");
 
 const app = express.Router();
 
-// Use models/posts functions
+// Uses models/posts functions
 app
     // Get all parts of a post
     .get("/", (req, res, next) =>{

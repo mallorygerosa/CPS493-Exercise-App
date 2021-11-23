@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Alt</label>
+                    <label class="label">Alt text</label>
                     <div class="control">
                         <input class="input" type="text" placeholder="Some alternate text for this picture" v-model="post.alt" />
                     </div>

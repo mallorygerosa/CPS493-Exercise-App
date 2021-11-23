@@ -1,18 +1,18 @@
 const list = [{
     firstName: 'Mallory',
     lastName: 'Gerosa',
-    handle: '@mgerosa',
+    handle: '@mg',
     pic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMo3I5GL9_Zd_LULXRIXTzRLlVESBnoGp8sw&usqp=CAU',
-    password: 'mypassword',
+    password: 'mypass',
     isAdmin: true,
     emails: [
         "gerosam1@newpaltz.edu"
     ],
     following: [{
-        handle: '@janedoe',
+        handle: '@janey',
         isApproved: true
     }, {
-        handle: '@johndoe',
+        handle: '@johnny',
         isApproved: true
     }, ],
     get name() {
@@ -63,7 +63,6 @@ export function Add(user) {
     list.push(user);
     return { ...user, password: undefined };
 }
-
 
 export function Update(user_id, user) {
     const oldObj = list[user_id];

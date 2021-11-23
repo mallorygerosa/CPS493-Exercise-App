@@ -4,7 +4,6 @@ import Home from '../views/Home.vue';
 import Feed from '../views/Feed.vue';
 import Login from '../views/Login.vue';
 
-
 const routes = [
   {
     path: '/',
@@ -20,39 +19,38 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    component: () => import('../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
 },
-  // {
-  //   path: '/exercise',
-  //   name: 'Exercise',
-  //   component: Exercise
-  // meta: { requiresLogin: true }
-  // },
   // {
   //   path: '/addexercise',
   //   name: 'AddExercise',
   //   component: AddExercise,
   // meta: { requiresLogin: true }
-
   // },
   {
     path: '/friends',
     name: 'Friends',
-    component: () => import('../views/Friends.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/Friends.vue'),
     meta: { requiresLogin: true }
 
   },
   {
     path: '/addfriend',
     name: 'AddFriend',
-    component: () => import('../views/AddFriend.vue'),    
+    component: () => import(/* webpackChunkName: "about" */ '../views/AddFriend.vue'),    
     meta: { requiresLogin: true }
     
   },
   {
-    path: '/profile',
+    path: '/Profile',
     name: 'Profile',
-    component: () => import('../views/Profile.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/Profile.vue'),
+    // meta: { requiresLogin: true} //
+  },
+  {
+    path: '/Users',
+    name: 'Users',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Users.vue'),
     meta: { requiresLogin: true}
   },
   {
@@ -63,7 +61,7 @@ const routes = [
   {
     path:'/register',
     name: 'Register',
-    component: ()=> import('../views/Register.vue')
+    component: ()=> import(/* webpackChunkName: "about" */ '../views/Register.vue')
   }
 ]
 

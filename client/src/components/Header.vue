@@ -5,13 +5,13 @@
     </h1>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a href="/">
+        <router-link is-tab to="/" exact>
           <img
             src="../assets/logo.png"
             alt="Logo"
             style="width: 130px; height: 50px"
           />
-        </a>
+        </router-link>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{'is-active': isActive }" @click="isActive = !isActive" >
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -39,6 +39,7 @@
             <div class="navbar-dropdown">
               <router-link class="navbar-item" to="/Friends"> Friend List </router-link>
               <router-link class="navbar-item" to="/AddFriend"> Add Friend </router-link>
+              <router-link class="navbar-item adminPage" to="/Users"> All Users </router-link>
             </div>
           </div>
           <router-link class="navbar-item" is-tab to="/Profile"> Profile </router-link>
