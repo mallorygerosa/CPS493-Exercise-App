@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <h1 class="title is-1 has-text-centered" style="margin: 15px 0px 0px 0px">
-      <strong>Fitness Tracker</strong>
+      <strong>Community Fitness</strong>
     </h1>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
@@ -12,37 +12,65 @@
             style="width: 130px; height: 50px"
           />
         </router-link>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{'is-active': isActive }" @click="isActive = !isActive" >
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          :class="{ 'is-active': isActive }"
+          @click="isActive = !isActive"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
       </div>
 
-  <div class="navbar-menu " :class="{'is-active': isActive }">
+      <div class="navbar-menu" :class="{ 'is-active': isActive }">
         <div class="navbar-start" style="font-size: 20px">
-          <router-link class="navbar-item" is-tab to="/" exact> Home </router-link>
+          <router-link class="navbar-item" is-tab to="/" exact>
+            Home
+          </router-link>
 
           <div class="navbar-item has-dropdown is-hoverable">
-            <router-link class="navbar-link" is-tab to="/Feed"> Activity Feed </router-link>
+            <router-link class="navbar-link" is-tab to="/Feed">
+              Activity Feed
+            </router-link>
 
             <div class="navbar-dropdown">
-              <router-link class="navbar-item" to="/Feed"> Personal Activity </router-link>
-              <router-link class="navbar-item" to="/Feed"> Community Activity </router-link>
-              <router-link class="navbar-item" to="/Feed"> Add Activity </router-link>
+              <router-link class="navbar-item" to="/PersonalFeed">
+                Personal Feed
+              </router-link>
+              <router-link class="navbar-item" to="/Feed">
+                Friend Feed
+              </router-link>              
+              <router-link class="navbar-item" to="/CommunityFeed">
+                Community Feed
+              </router-link>
             </div>
           </div>
 
           <div class="navbar-item has-dropdown is-hoverable">
-            <router-link class="navbar-link" is-tab to="/Friends"> Friends </router-link>
+            <router-link class="navbar-link" is-tab to="/Friends">
+              Community
+            </router-link>
 
             <div class="navbar-dropdown">
-              <router-link class="navbar-item" to="/Friends"> Friend List </router-link>
-              <router-link class="navbar-item" to="/AddFriend"> Add Friend </router-link>
-              <router-link class="navbar-item adminPage" to="/Users"> All Users </router-link>
+              <router-link class="navbar-item" to="/Friends"> View Friends </router-link>
+              <!-- <router-link class="navbar-item" to="/AddFriend"> Add Friend </router-link> -->
+              <router-link class="navbar-item" to="/Users">
+                View All Users
+              </router-link>
             </div>
           </div>
-          <router-link class="navbar-item" is-tab to="/Profile"> Profile </router-link>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <router-link class="navbar-link" is-tab to="/Profile">
+              Profile
+            </router-link>
+            <div class="navbar-dropdown">
+              <router-link class="navbar-item" to="/Profile"> Manage account </router-link>
+            </div>
+          </div>
         </div>
 
         <div class="navbar-end">

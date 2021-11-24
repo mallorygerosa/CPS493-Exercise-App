@@ -60,17 +60,17 @@ const addOwnerPipeline = [
     { $project: { "owner.password": 0}}
 ];
 
-// Get all post information
+// Get all posts from all users
 module.exports.GetAll = function GetAll() {
     return collection.aggregate(addOwnerPipeline).toArray();
 }
 
-// Get all posts of a user by user handle
+// Get all posts by a user
 module.exports.GetWall = function GetWall(handle) {
     return collection.aggregate(addOwnerPipeline).match({ user_handle: handle }).toArray();
 }
 
-// Get all posts by user and friends by passing a user handle
+// Get all posts by a user and users friends
 module.exports.GetFeed = function GetFeed(handle) {
     const query = Users.collection.aggregate([
         {$match: { handle }},
@@ -84,8 +84,6 @@ module.exports.GetFeed = function GetFeed(handle) {
         {$replaceRoot: { newRoot: "$posts" } },
     ].concat(addOwnerPipeline));
     return query.toArray();
-    //return listWithOwner()
-    //.match(post=> GetByHandle(handle).following.some(f=> f.handle == post.user_handle && f.isApproved) );
 }
 // Get feed by MongoDB
 module.exports.GetFeed = async function (handle) {

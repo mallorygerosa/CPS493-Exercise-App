@@ -34,7 +34,7 @@
         <div class="field">
           <div class="buttons is-grouped is-centered">
             <p class="control">
-              <button class="button is-success" type="submit">Login</button>
+              <button class="button is-success" type="submit">Log in</button>
             </p>
             <p class="control">
               <button
@@ -45,6 +45,7 @@
               </button>
             </p>
           </div>
+          <button class="button is-light" type="reset">Cancel</button>
         </div>
         <router-link to="./Register">
           <button class="button is-light">

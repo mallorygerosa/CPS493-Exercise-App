@@ -20,7 +20,7 @@ app
                 .catch(next)    
     })
 
-    // Get all postsmade by user and user's friends 
+    // Get all posts made by user and user's friends 
     .get("/feed/:handle", (req, res, next) =>{
         model   .GetFeed(req.params.handle)
                 .then( x=> res.send(x) )
@@ -90,7 +90,7 @@ app
                 .catch(next) 
     })
     
-    // Get initial post
+    // Get initial posts
     .post("/seed", (req, res, next) =>{
         model   .Seed()
                 .then( x=> res.status(201).send("Created") )

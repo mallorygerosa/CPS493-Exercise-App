@@ -1,19 +1,19 @@
-<!-- VERY unfinished 
+<!-- VERY unfinished -->
 <template>
   <div class="container">
     <div class="columns is-centered">
-      <form class="box" style="margin-top: 30px">
+      <form class="box" style="margin-top: 30px" @submit.prevent="register()">
         <p class="title is-1 has-text-centered">Sign Up</p>
 
         <div class="field">
           <label class="label">Username</label>
           <div class="control">
-            <input>
+            <input
               class="input is-success"
               type="text"
-              placeholder="User"
+              placeholder="@User"
               required
-            </input>
+            />
             <span class="icon is-small is-left">
               <i href="" class="fas fa-envelope"></i>
             </span>
@@ -23,36 +23,36 @@
         <div class="field">
           <label class="label">First name</label>
           <div class="control">
-            <input>
+            <input
               class="input is-success"
               type="text"
-              placeholder="John Goblikon"
+              placeholder="John"
               required
-            </input>
+            />
           </div>
         </div>
 
         <div class="field">
           <label class="label">Last name</label>
           <div class="control">
-            <input>
+            <input
               class="input is-success"
               type="text"
               placeholder="Goblikon"
               required
-            </input>
+            />
           </div>
         </div>
 
         <div class="field">
           <label class="label">Email</label>
           <div class="control">
-            <input>
+            <input
               class="input is-success"
               type="email"
               placeholder="user@example.com"
               required
-            </input>
+            />
             <span class="icon is-small is-left">
             <i class="fas fa-envelope"></i>
             </span>
@@ -62,33 +62,34 @@
         <div class="field">
           <label class="label">Password</label>
           <div class="control">
-            <input>
+            <input
               class="input is-success"
               type="text"
               placeholder="**********"
               required
-            </input>
+            />
             <span class="icon is-small is-left">
             <i class="fas fa-lock"></i>
             </span>
           </div>
         </div>
 
-        <div class="field">
+        <!-- <div class="field">
           <label class="label">Confirm password</label>
           <div class="control">
-            <input>
+            <input
               class="input is-success"
               type="text"
               placeholder="**********"
               required
-            </input>
+            />
           </div>
-        </div>
+        </div> -->
+
         <div class="field">
           <div class="buttons is-grouped is-centered">
             <router-link class="button is-success" to="/Profile">Sign up</router-link>
-            <router-link class="button is-light" href="./">Cancel</router-link>
+            <router-link class="button is-light" href="/">Cancel</router-link>
           </div>
         </div>
       </form>
@@ -100,36 +101,31 @@
 import Session from "../services/session";
 import { GetByHandle } from '../services/users';
 
-const newUser = ()=> ({ 
-user: Session.user, user_handle: Session.user.handle user_email: Session.user.email })
+// const newUser = ()=> ({ 
+//   user: Session.user, user_handle: Session.user.handle user_email: Session.user.email })
 
 
 export default {
   data: () => ({
-    email: null,
-    password: null,
-    handle: null,
-    firstName: null,
-    lastName: null,
+    user: null,
     Session,
   }),
   methods: {
     checkUsername() {
-      if ( !GetByHandle(this.handle)){
+      if ( !GetByHandle(this.handle) )
       return true;
-      } else {return false}
+      else {return false}
     },
-    checkPassword() {
+    // checkPassword() {
 
-    },
-    checkEmail() {
+    // },
+    // checkEmail() {
       
-    },
+    // },
     register() {
-      if (register() && checkEmail() && checkPassword())
+      if (checkUsername())
       this.Session.login(this.email, this.password)
     }
   },
 };
 </script>
--->

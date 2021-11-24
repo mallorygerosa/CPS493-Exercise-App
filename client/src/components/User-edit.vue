@@ -10,7 +10,7 @@
             <input
               class="input is-success"
               type="text"
-              placeholder="Username"
+              placeholder="New username"
             />
           </div>
           <!-- Need to add checking mechanism -->
@@ -27,26 +27,27 @@
               placeholder="email@example.com"
             />
           </div>
+          
           <!-- Need to add checking mechanism -->
-          <p class="help is-success">Email is available</p>
-          <p class="help is-danger">Not a valid email</p>
+          <!-- <p class="help is-success">Email is available</p>
+          <p class="help is-danger">Not a valid email</p> -->
         </div>
 
         <div class="field">
-          <label class="label">New Password</label>
+          <label class="label">Change Password</label>
           <div class="control">
             <input
               class="input"
-              type="password"
+              type="New password"
               placeholder="********"
               required
             />
           </div>
           <!-- Need to add checking mechanism -->
-          <p class="help is-danger">Password must have 8 or more characters</p>
+          <!-- <p class="help is-danger">Password must have 8 or more characters</p> -->
         </div>
 
-        <div class="field">
+        <!-- <div class="field">
           <label class="label">Confirm Password</label>
           <div class="control">
             <input
@@ -56,9 +57,9 @@
               required
             />
           </div>
-          <!-- Need to add checking mechanism -->
+          Need to add checking mechanism
           <p class="help is-danger">Passwords don't match</p>
-        </div>
+        </div> -->
         <!-- <div class="field">
             <label class="label">Edit profile picture</label>
           </div> -->

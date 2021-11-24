@@ -7,15 +7,14 @@
       <section class="section">
         <h1 class="title is-1">
           Welcome, <br />
-          To Your Own Personal Activity Hub
+          To Your Own Personalized Activity Hub
         </h1>
         <h2 class="subtitle is-3">
-          Log your activity, share it with others, and see what your friends are
-          up to, all in one place.
+          Connect with your community, your friends, and yourself, all in one place. 
         </h2>
-        <!-- <router-link to="/Register">
+        <router-link to="/Feed">
           <button class="button is-white">Get Started</button>
-        </router-link> -->
+        </router-link>
       </section>
     </div>
     <div class="hero-foot"></div>

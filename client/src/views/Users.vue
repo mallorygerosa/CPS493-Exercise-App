@@ -54,7 +54,7 @@
     </div>
 </template>
 
-<script>import {  GetAll } from "../services/users"
+<script>import { GetAll } from "../services/users"
 export default {
     data() {
         return {
