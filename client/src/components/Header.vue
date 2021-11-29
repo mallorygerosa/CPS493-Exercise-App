@@ -63,14 +63,11 @@
               </router-link>
             </div>
           </div>
-          <div class="navbar-item has-dropdown is-hoverable">
-            <router-link class="navbar-link" is-tab to="/Profile">
-              Profile
-            </router-link>
-            <div class="navbar-dropdown">
-              <router-link class="navbar-item" to="/Profile"> Manage account </router-link>
-            </div>
-          </div>
+
+          <router-link class="navbar-item" is-tab to="/profile">
+            Profile
+          </router-link>
+
         </div>
 
         <div class="navbar-end">

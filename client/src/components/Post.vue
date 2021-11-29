@@ -1,16 +1,18 @@
 <template>
   <div class="card">
+            <div class="card-content">
+
+    <h2 class="title is-4 has-text-centered">Post Preview</h2>
   <div class="card-image">
     <figure class="image is-4by3">
       <img :src="post.src" :alt="post.alt">
-        <button class="delete" @click="$emit('remove')"></button>
     </figure>
   </div>
   <div class="card-content">
     <div class="media">
       <div class="media-left">
         <figure class="image is-48x48">
-          <img :src="post.user.pic" alt="Placeholder image">
+          <img :src="post.user.pic" alt="User pic">
         </figure>
       </div>
       <div class="media-content">
@@ -32,9 +34,11 @@
         <a href="#" class="card-footer-item">Delete</a>
   </footer>
 </div>
+  </div>
 </template>
 
 <script>
+
 export default {
     props: {
         post: Object
@@ -44,7 +48,7 @@ export default {
             if(this.post.time && this.post.time.toDateString){
                 return this.post.time.toDateString()
             }else{
-                return 'Never'
+                return 'No date available'
             }
             
         }

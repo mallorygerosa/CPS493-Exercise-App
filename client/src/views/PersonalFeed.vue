@@ -1,6 +1,6 @@
 <template>
   <div class="section">
-    <h1 class="title">Personal Feed</h1>
+    <h1 class="title has-text-centered">Personal Feed</h1>
 
     <div class="columns">
       <div class="column is-half is-offset-one-quarter">
@@ -21,12 +21,12 @@
 
 <script>
 import Post from "../components/Post.vue";
-import session from "../services/session";
+import Session from "../services/session";
 import { Add, Delete, GetWall } from "../services/posts";
 import PostEdit from "../components/Post-edit.vue";
 const newPost = () => ({
-  user: session.user,
-  user_handle: session.user.handle,
+  user: Session.user,
+  user_handle: Session.user.handle,
 });
 export default {
   components: {
@@ -38,7 +38,7 @@ export default {
     newPost: newPost(),
   }),
   async mounted() {
-    this.posts = await GetWall(session.user.handle);
+    this.posts = await GetWall(Session.user.handle);
   },
   methods: {
     async remove(post, i) {

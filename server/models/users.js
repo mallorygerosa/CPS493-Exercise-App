@@ -3,6 +3,7 @@ const { ObjectId } = require('bson');
 const { client } = require('./mongo');
 
 const collection = client.db(process.env.MONGO_DB).collection('users');
+
 module.exports.collection = collection;
 
 const list = [{
@@ -59,12 +60,12 @@ const list = [{
 
 ];
 
-// Get all user information
+// Get all users information
 module.exports.GetAll = function GetAll() {
     return list;
 }
 
-// Get user by ID
+// Get users by listing IDs
 module.exports.Get = user_id => list[user_id];
 
 // Get user by handle
@@ -167,4 +168,9 @@ module.exports.Login = function Login(handle, password) {
 
         });
 
+}
+module.exports.Seed = async ()=>{
+    for (const x of list) {
+        await module.exports.Add(x)
+    }
 }

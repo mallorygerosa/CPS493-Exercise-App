@@ -1,6 +1,6 @@
 <template>
   <div class="section">
-    <h1 class="title">Community Feed</h1>
+    <h1 class="title has-text-centered">Community Feed</h1>
 
     <div class="columns">
       <div class="column is-half is-offset-one-quarter">
@@ -24,6 +24,7 @@ import Post from "../components/Post.vue";
 import Session from "../services/session";
 import { Add, Delete, GetAll } from "../services/posts";
 import PostEdit from "../components/Post-edit.vue";
+
 const newPost = () => ({
   user: Session.user,
   user_handle: Session.user.handle,
@@ -38,7 +39,7 @@ export default {
     newPost: newPost(),
   }),
   async mounted() {
-    this.posts = await GetAll(session.user.handle);
+    this.posts = await GetAll(Session.user.handle);
   },
   methods: {
     async remove(post, i) {

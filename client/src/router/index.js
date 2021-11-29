@@ -3,6 +3,7 @@ import Session from'../services/session';
 import Home from '../views/Home.vue';
 import Feed from '../views/Feed.vue';
 import CommunityFeed from '../views/CommunityFeed.vue';
+// import PersonalFeed from '../views/PersonalFeed.vue';
 
 const routes = [
   {
@@ -21,12 +22,12 @@ const routes = [
     name: 'CommunityFeed',
     component: CommunityFeed,
   },
-  {
-    path: '/personalfeed',
-    name: 'PersonalFeed',
-    component: PeresonalFeed,
-    meta: { requiresLogin: true }
-  },
+  // {
+  //   path: '/personalfeed',
+  //   name: 'PersonalFeed',
+  //   component: PeresonalFeed,
+  //   meta: { requiresLogin: true }
+  // },
   {
     path: '/about',
     name: 'About',
@@ -38,35 +39,28 @@ const routes = [
     component: () => import(/* webpackChunkName: "users" */ '../views/Friends.vue'),
     meta: { requiresLogin: true }
   },
-  // {
-  //   path: '/addfriend',
-  //   name: 'AddFriend',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AddFriend.vue'),    
-  //   meta: { requiresLogin: true }
-    
-  // },
   {
-    path: '/Profile',
+    path: '/profile',
     name: 'Profile',
     component: () => import(/* webpackChunkName: "users" */ '../views/Profile.vue'),
-    // meta: { requiresLogin: true} //
+    meta: { requiresLogin: true}
   },
   {
-    path: '/Users',
+    path: '/users',
     name: 'Users',
-    component: () => import(/* webpackChunkName: "users" */ '../views/Users.vue'),
+    component: () => import(/* webpackChunkName: "adminonly" */ '../views/Users.vue'),
     meta: { requiresLogin: true}
   },
   {
     path:'/login',
     name: 'Login',
-    component: ()=> import(/* webpackChunkName: "users" */ '../views/Register.vue')
+    component: ()=> import(/* webpackChunkName: "users" */ '../views/Login.vue')
   },
   {
     path:'/register',
     name: 'Register',
     component: ()=> import(/* webpackChunkName: "users" */ '../views/Register.vue')
-  }
+  },
 ]
 
 const router = createRouter({

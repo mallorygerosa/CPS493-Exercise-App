@@ -1,131 +1,70 @@
-<!-- VERY unfinished -->
 <template>
-  <div class="container">
-    <div class="columns is-centered">
-      <form class="box" style="margin-top: 30px" @submit.prevent="register()">
-        <p class="title is-1 has-text-centered">Sign Up</p>
+  <!-- <section class="hero is-primary"> -->
+    <!-- <div class="hero-body"> -->
+      <div class="container">
+      <p class="title is-1 has-text-centered">Sign Up</p>
 
-        <div class="field">
-          <label class="label">Username</label>
-          <div class="control">
-            <input
-              class="input is-success"
-              type="text"
-              placeholder="@User"
-              required
-            />
-            <span class="icon is-small is-left">
-              <i href="" class="fas fa-envelope"></i>
-            </span>
+        <div class="columns is-centered" style="margin-top: 40px">
+          <div class="columns is-5-tablet is-4-desktop is-3-widescreen">
+            <add-user :new-user="user" @add="add()" />
           </div>
         </div>
+      </div>
+    <!-- </div> -->
 
-        <div class="field">
-          <label class="label">First name</label>
-          <div class="control">
-            <input
-              class="input is-success"
-              type="text"
-              placeholder="John"
-              required
-            />
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Last name</label>
-          <div class="control">
-            <input
-              class="input is-success"
-              type="text"
-              placeholder="Goblikon"
-              required
-            />
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Email</label>
-          <div class="control">
-            <input
-              class="input is-success"
-              type="email"
-              placeholder="user@example.com"
-              required
-            />
-            <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
-            </span>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Password</label>
-          <div class="control">
-            <input
-              class="input is-success"
-              type="text"
-              placeholder="**********"
-              required
-            />
-            <span class="icon is-small is-left">
-            <i class="fas fa-lock"></i>
-            </span>
-          </div>
-        </div>
-
-        <!-- <div class="field">
-          <label class="label">Confirm password</label>
-          <div class="control">
-            <input
-              class="input is-success"
-              type="text"
-              placeholder="**********"
-              required
-            />
-          </div>
-        </div> -->
-
-        <div class="field">
-          <div class="buttons is-grouped is-centered">
-            <router-link class="button is-success" to="/Profile">Sign up</router-link>
-            <router-link class="button is-light" href="/">Cancel</router-link>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+  <!-- </section> -->
 </template>
 
 <script>
-import Session from "../services/session";
-import { GetByHandle } from '../services/users';
-
-// const newUser = ()=> ({ 
-//   user: Session.user, user_handle: Session.user.handle user_email: Session.user.email })
-
+import { Add } from "../services/users";
+import AddUser from "../components/AddUser";
 
 export default {
-  data: () => ({
-    user: null,
-    Session,
-  }),
+  components: {
+    AddUser,
+  },
+  data() {
+    return {
+        FIRST: "",
+        LAST: "",
+        HAND: "",
+        PASS:"",
+        PIC: "",
+        EMAIL: [],
+      user: ({
+        firstName: null,
+        lastName: null,
+        handle: null,
+        password: null,
+        pic: null,
+        emails: [],
+      }),
+    };
+  },
+  async mounted() {
+    this.user.firstName = this.FIRST;
+    this.user.lastName = this.LAST;
+    this.user.handle = this.USER;
+    this.user.password = this.PASS;
+    this.user.pic = this.PIC;
+    this.user.emails = this.EMAIL;
+  },
   methods: {
-    checkUsername() {
-      if ( !GetByHandle(this.handle) )
-      return true;
-      else {return false}
+    async add() {
+      const response = await Add(this.user);
+      if (response) {
+        this.$oruga.notification.open({
+          message: "Welcome to Community Fitness",
+          variant: "info",
+          position: "top",
+          closable: true,
+        });
+      }
     },
-    // checkPassword() {
 
-    // },
-    // checkEmail() {
-      
-    // },
-    register() {
-      if (checkUsername())
-      this.Session.login(this.email, this.password)
-    }
   },
 };
 </script>
+
+<style>
+</style>

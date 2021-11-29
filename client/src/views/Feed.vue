@@ -1,6 +1,6 @@
 <template>
   <div class="section">
-    <h1 class="title">Friend Feed</h1>
+    <h1 class="title has-text-centered">Friend Feed</h1>
 
     <div class="columns">
       <div class="column is-half is-offset-one-quarter">
@@ -20,10 +20,11 @@
 </template>
 
 <script>
-import Post from "../components/Post.vue";
+import Post from '../components/Post.vue';
 import Session from "../services/session";
 import { Add, Delete, GetFeed } from "../services/posts";
 import PostEdit from "../components/Post-edit.vue";
+
 const newPost = () => ({
   user: Session.user,
   user_handle: Session.user.handle,
@@ -49,6 +50,7 @@ export default {
       }
     },
     async add() {
+      console.log("New post added on " + new Date())
       const response = await Add(this.newPost);
       console.log({ response });
       if (response) {
