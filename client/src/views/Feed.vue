@@ -1,26 +1,26 @@
 <template>
-  <div class="section">
+  <div class="feed">
     <h1 class="title has-text-centered">Friend Feed</h1>
+    <div class="section">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <post-edit :new-post="newPost" @add="add()" />
 
-    <div class="columns">
-      <div class="column is-half is-offset-one-quarter">
-          
-        <post-edit :new-post="newPost" @add="add()" />
-
-        <div class="post" v-for="(p, i) in posts" :key="p.src">
-          <post :post="p" @remove="remove(p, i)" />
+          <div class="post" v-for="(p, i) in posts" :key="p.src">
+            <post :post="p" @remove="remove(p, i)" />
+          </div>
         </div>
-      </div>
 
-      <div class="column">
-        <post :post="newPost" />
+        <div class="column">
+          <post :post="newPost" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Post from '../components/Post.vue';
+import Post from "../components/Post.vue";
 import Session from "../services/session";
 import { Add, Delete, GetFeed } from "../services/posts";
 import PostEdit from "../components/Post-edit.vue";
@@ -29,6 +29,7 @@ const newPost = () => ({
   user: Session.user,
   user_handle: Session.user.handle,
 });
+
 export default {
   components: {
     Post,
@@ -50,7 +51,7 @@ export default {
       }
     },
     async add() {
-      console.log("New post added on " + new Date())
+      console.log("New post added on " + new Date());
       const response = await Add(this.newPost);
       console.log({ response });
       if (response) {

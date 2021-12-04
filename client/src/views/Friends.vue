@@ -2,7 +2,7 @@
   <div class="friends">
     <h1 class="subtitle is-2 has-text-centered">Friends</h1>
     <div class="container">
-      <router-link to="/AddFriend" class="button is-success">
+      <router-link to="/AddFriend" class="button is-success" style = "is-centered">
         Add Friend
       </router-link>
 
@@ -10,7 +10,7 @@
         <div class="card-content">
           <div class="columns is-multiline">
             <!-- Column 1 -->
-            <div class="column is-one-third">
+            <div class="column is-one-half">
               <article class="media">
                 <div class="media-left">
                   <figure class="image is-96x96">
@@ -51,7 +51,7 @@
             </div>
 
             <!-- Column 2 -->
-            <div class="column is-one-third">
+            <div class="column is-one-half">
               <article class="media">
                 <div class="media-left">
                   <figure class="image is-96x96">
@@ -76,30 +76,24 @@
         </div>
       </div>
     </div>
-<!--     
-    <div id="add_friend" class="modal">
-      <div class="modal-background"></div>
-      <div class="model-content">
-        <form action class="box">
-          <div class="field">
-            <label class="label">Username</label>
-            <div class="control">
-              <input
-                class="input is-success"
-                type="text"
-                placeholder="Username"
-              />
-            </div>
-            <button class="button help is-success">Add User</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div> -->
+
 </template>
 <script>
+import Session from "../services/session";
+
 export default {
-  name: "Friends",
-  components: {},
+  name: {
+  },
+  data: () => ({
+    user: {
+      firstName: null,
+      lastName: null,
+      handle: null,
+      emails: [],
+      follows: [],
+      pic: 'https://bulma.io/images/placeholders/128x128.png',
+    },
+    Session,
+  }),
 };
 </script>

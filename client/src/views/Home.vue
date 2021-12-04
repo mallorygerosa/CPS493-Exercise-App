@@ -7,7 +7,7 @@
       <section class="section">
         <h1 class="title is-1">
           Welcome, <br />
-          To Your Own Personalized Activity Hub
+          To Your Own Personalized Community Activity Hub
         </h1>
         <h2 class="subtitle is-3">
           Connect with your community, your friends, and yourself, all in one place. 

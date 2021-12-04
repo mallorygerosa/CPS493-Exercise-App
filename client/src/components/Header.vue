@@ -64,6 +64,10 @@
             </div>
           </div>
 
+          <router-link class="navbar-item" is-tab to="/about">
+            About
+          </router-link>
+
           <router-link class="navbar-item" is-tab to="/profile">
             Profile
           </router-link>
