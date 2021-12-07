@@ -2,10 +2,10 @@ import router from "../router";
 import { Login } from "./users";
 import { NotificationProgrammatic } from "@oruga-ui/oruga-next/dist/esm/notification";
 
-const Session = {
+const session = {
     user: null,
     messages: [],       // {text: string, type: string }
-    toRoute: '/',
+    toRoute: '/feed',
     async Login(handle, password){
 
         try {
@@ -36,4 +36,4 @@ const Session = {
     }
 };
 
-export default Session;
+export default session;

@@ -1,7 +1,7 @@
 <template>
     <div class="about">
-        <h1 class="title has-text-centered">All Community Fitness Users</h1>
-        <h2 class="subtitle has-text-centered">Only admins can see this page</h2>
+        <h1 class="title">Users Page</h1>
+        <h2 class="subtitle">Should be accesible only to admins</h2>
 
         <table class="table is-striped is-hoverable is-fullwidth">
             <thead>
@@ -10,7 +10,7 @@
                     <th>Last Name</th>
                     <th>Username</th>
                     <th>Profile Picture</th>
-                    <th>Admin</th>
+                    <th>isAdmin</th>
                     <th></th>
                     <th></th>
                 </tr>

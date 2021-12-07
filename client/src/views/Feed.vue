@@ -37,13 +37,16 @@ export default {
     Post,
     PostEdit,
   },
+  
   data: () => ({
     posts: [],
     newPost: newPost(),
   }),
+
   async mounted() {
     this.posts = await GetFeed(Session.user.handle);
   },
+
   methods: {
     async remove(post, i) {
       console.log({ post });
@@ -52,10 +55,12 @@ export default {
         this.posts.splice(i, 1);
       }
     },
+
     async add() {
       console.log("New post added on " + new Date());
       const response = await Add(this.newPost);
       console.log({ response });
+
       if (response) {
         this.posts.unshift(response);
         this.newPost = newPost();

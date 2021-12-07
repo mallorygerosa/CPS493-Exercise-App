@@ -37,7 +37,9 @@ export default {
         handle: null,
         password: null,
         pic: null,
+        isAdmin: false,
         emails: [],
+        following: [],
       }),
     };
 

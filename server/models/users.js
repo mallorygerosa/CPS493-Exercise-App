@@ -59,17 +59,12 @@ const list = [{
     },
 
 ];
-
-// Get all users
 module.exports.GetAll = function GetAll() { return collection.find().toArray() ; }
 
-// Get user by ID
 module.exports.Get = user_id => collection.findOne({_id: new ObjectId(user_id)}) 
 
-// Get user by handle
 module.exports.GetByHandle = (handle) => collection.findOne({ handle }).then(x=> ({ ...x, password: undefined }));
 
-// Add user
 module.exports.Add = async function Add(user) {
     if(!user.firstName){
          return Promise.reject( { code: 422, msg: "First Name is required" } )
@@ -89,7 +84,7 @@ module.exports.Add = async function Add(user) {
         return { ...user, password: undefined };
 }
 
-// Update user
+
 module.exports.Update = async function Update(user_id, user) {
 
     const results = await collection.findOneAndUpdate(
@@ -102,14 +97,12 @@ module.exports.Update = async function Update(user_id, user) {
     return { ...results.value, password: undefined };
 }
 
-// Delete user
 module.exports.Delete = async function Delete(user_id) {
     const results = await collection.findOneAndDelete({_id: new ObjectId(user_id) })
 
     return results.value;
 }
 
-// Log in
 module.exports.Login = async function Login(handle, password){
     console.log({ handle, password})
     const user = await collection.findOne({ handle });
@@ -126,6 +119,8 @@ module.exports.Login = async function Login(handle, password){
     const data = { ...user, password: undefined };
     
     return { user: data };
+
+    
 }
 
 module.exports.Seed = async ()=>{

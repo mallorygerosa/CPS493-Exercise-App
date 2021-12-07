@@ -1,16 +1,16 @@
-<template>
-    <div class="about">
-        <h1 class="title has-text-centered">All Community Fitness Users</h1>
-        <h2 class="subtitle">Should be all friends of a user</h2>
+<!-- <template>
+    <div class="about"> 
+        <h1 class="title">Users Page</h1>
+        <h2 class="subtitle">Should be accesible only to admins</h2>
 
         <table class="table is-striped is-hoverable is-fullwidth">
             <thead>
                 <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Username</th>
-                    <th>Profile Picture</th>
-                    <th>Admin</th>
+                    <th>Handle</th>
+                    <th>Profile Pic</th>
+                    <th>isAdmin</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -54,10 +54,8 @@
     </div>
 </template>
 
-<script>
+<script> 
 import { GetByHandle } from "../services/users"
-import Session from "../services/session"
-
 export default {
     data() {
         return {
@@ -65,7 +63,8 @@ export default {
         }
     },
     async mounted(){
-        this.list = await GetByHandle(Session.user.handle);
+        this.list = await GetByHandle(this.user.handle);
     }
 }
-</script>
+</script> 
+-->

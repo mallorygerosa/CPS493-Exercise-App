@@ -1,11 +1,13 @@
 <template>
   <div class="card">
     <div class="card-content">
-      <h2 class="title is-4 has-text-centered">Post Preview</h2>
+      <!-- <h2 class="title is-4 has-text-centered">Post Preview</h2> -->
       <div class="card-image">
         <figure class="image is-4by3">
           <img :src="post.src" :alt="post.alt" />
         </figure>
+                <button class="delete" @click="$emit('remove')"></button>
+
       </div>
       <div class="card-content">
         <div class="media">

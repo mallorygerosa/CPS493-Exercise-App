@@ -60,18 +60,19 @@ const addOwnerPipeline = [
     { $project: { "owner.password": 0}}
 ];
 
-// Get all posts from all users
+// Get all posts
 module.exports.GetAll = function GetAll() {
     return collection.aggregate(addOwnerPipeline).toArray();
 }
 
-// Get all posts by a user
+// Get all posts by user
 module.exports.GetWall = function GetWall(handle) {
     return collection.aggregate(addOwnerPipeline).match({ user_handle: handle }).toArray();
 }
 
-// Get all posts by a user and users friends
-module.exports.GetFeed = function GetFeed(handle) {
+// Get all posts by user and friends
+module.exports.GetFeed_ = function GetFeed_(handle) {
+    //  The "SQL" way to do things
     const query = Users.collection.aggregate([
         {$match: { handle }},
         {"$lookup" : {
@@ -84,8 +85,10 @@ module.exports.GetFeed = function GetFeed(handle) {
         {$replaceRoot: { newRoot: "$posts" } },
     ].concat(addOwnerPipeline));
     return query.toArray();
+
 }
-// Get feed by MongoDB
+
+// Get all posts by user and friends
 module.exports.GetFeed = async function (handle) {
     //  The "MongoDB" way to do things. (Should test with a large `following` array)
     const user = await Users.collection.findOne({ handle });
@@ -99,16 +102,16 @@ module.exports.GetFeed = async function (handle) {
     return query.toArray();
 }
 
-// Get a post by post ID
+// Get post by ID
 module.exports.Get = function Get(post_id) { return collection.findOne({_id: new ObjectId(post_id) }); }
 
-// Add a post by passing a post
+// Add post
 module.exports.Add = async function Add(post) {
     if(!post.user_handle){
         throw {code: 422, msg: "Post must have an Owner"}
     }
     post.time = Date();
-    console.log(post);
+    
     const response = await collection.insertOne(post);
     
     post.id = response.insertedId;
@@ -116,7 +119,7 @@ module.exports.Add = async function Add(post) {
     return { ...post };
 }
 
-// Update a post by passing post ID and post
+// Update post
 module.exports.Update = async function Update(post_id, post) {
     const results = await collection.findOneAndUpdate(
         {_id: new ObjectId(post_id) }, 
@@ -127,17 +130,17 @@ module.exports.Update = async function Update(post_id, post) {
     return results.value;
 }
 
-// Delete a post by post ID
+// Delete post
 module.exports.Delete = async function Delete(post_id) {
     const results = await collection.findOneAndDelete({_id: new ObjectId(post_id) })
 
     return results.value;
 } 
 
-// Search posts by caption
+// Search for post by caption
 module.exports.Search = q => collection.find({ caption: new RegExp(q,"i") }).toArray();
 
-// Start database with hardcoded user information
+// Start with initial posts
 module.exports.Seed = async ()=>{
     for (const x of list) {
         await this.Add(x)
