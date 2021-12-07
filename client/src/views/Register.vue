@@ -40,6 +40,7 @@ export default {
         emails: [],
       }),
     };
+
   },
   async mounted() {
     this.user.firstName = this.FIRST;
@@ -49,9 +50,11 @@ export default {
     this.user.pic = this.PIC;
     this.user.emails = this.EMAIL;
   },
+  
   methods: {
     async add() {
       const response = await Add(this.user);
+
       if (response) {
         this.$oruga.notification.open({
           message: "Welcome to Community Fitness",
@@ -60,6 +63,7 @@ export default {
           closable: true,
         });
       }
+
     },
 
   },

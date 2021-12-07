@@ -60,115 +60,74 @@ const list = [{
 
 ];
 
-// Get all users information
-module.exports.GetAll = function GetAll() {
-    return list;
-}
+// Get all users
+module.exports.GetAll = function GetAll() { return collection.find().toArray() ; }
 
-// Get users by listing IDs
-module.exports.Get = user_id => list[user_id];
+// Get user by ID
+module.exports.Get = user_id => collection.findOne({_id: new ObjectId(user_id)}) 
 
 // Get user by handle
-module.exports.GetByHandle = function GetByHandle(handle) {
-    return ({
-        ...list.find(x => x.handle == handle),
-        password: undefined
-    });
-}
+module.exports.GetByHandle = (handle) => collection.findOne({ handle }).then(x=> ({ ...x, password: undefined }));
 
 // Add user
-module.exports.Add = function Add(user) {
-    if (!user.firstName) {
-        return Promise.reject({
-            code: 422,
-            msg: "First Name is required"
-        })
+module.exports.Add = async function Add(user) {
+    if(!user.firstName){
+         return Promise.reject( { code: 422, msg: "First Name is required" } )
     }
 
-    return bcrypt.hash(user.password, +process.env.SALT_ROUNDS)
+    const hash = await bcrypt.hash(user.password, +process.env.SALT_ROUNDS)
+    
+        console.log({
+            user, salt: process.env.SALT_ROUNDS, hash
+        })
+        
+        user.password = hash;
 
-        .then(hash => {
-            console.log({
-                user,
-                salt: process.env.SALT_ROUNDS,
-                hash
-            })
+        const user2 = await collection.insertOne(user);
+        user._id = user2.insertedId;
 
-            user.password = hash;
-
-            list.push(user);
-
-            return {
-                ...user,
-                password: undefined
-            };
-        });
+        return { ...user, password: undefined };
 }
 
 // Update user
-module.exports.Update = function Update(user_id, user) {
-    const oldObj = list[user_id];
-    if (user.firstName) {
-        oldObj.firstName = user.firstName;
-    }
-    if (user.lastName) {
-        oldObj.lastName = user.lastName;
-    }
-    if (user.handle) {
-        oldObj.handle = user.handle;
-    }
-    if (user.pic) {
-        oldObj.pic = user.pic;
-    }
-    return {
-        ...oldObj,
-        password: undefined
-    };
+module.exports.Update = async function Update(user_id, user) {
+
+    const results = await collection.findOneAndUpdate(
+        {_id: new ObjectId(user_id) }, 
+        { $set: user },
+        { returnDocument: 'after'}
+    );
+    console.log({ user_id, results });
+        
+    return { ...results.value, password: undefined };
 }
 
 // Delete user
-module.exports.Delete = function Delete(user_id) {
-    const user = list[user_id];
-    list.splice(user_id, 1);
-    return user;
+module.exports.Delete = async function Delete(user_id) {
+    const results = await collection.findOneAndDelete({_id: new ObjectId(user_id) })
+
+    return results.value;
 }
 
 // Log in
-module.exports.Login = function Login(handle, password) {
-    console.log({
-        handle,
-        password
-    })
-    const user = list.find(x => x.handle == handle);
-    if (!user) {
-        return Promise.reject({
-            code: 401,
-            msg: "Sorry there is no user with that handle"
-        });
+module.exports.Login = async function Login(handle, password){
+    console.log({ handle, password})
+    const user = await collection.findOne({ handle });
+    if(!user){
+        return Promise.reject( { code: 401, msg: "Sorry there is no user with that handle" });
     }
 
-    return bcrypt.compare(password, user.password)
-        .then(result => {
-
-            if (!result) {
-                throw {
-                    code: 401,
-                    msg: "Wrong Password"
-                };
-            }
-
-            const data = {
-                ...user,
-                password: undefined
-            };
-
-            return {
-                user: data
-            };
-
-        });
-
+    const result = await bcrypt.compare(password, user.password)
+        
+    if( ! result ){
+        throw { code: 401, msg: "Wrong Password" } ;
+    }
+    
+    const data = { ...user, password: undefined };
+    
+    return { user: data };
 }
+
 module.exports.Seed = async ()=>{
     for (const x of list) {
         await module.exports.Add(x)

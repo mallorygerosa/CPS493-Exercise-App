@@ -3,7 +3,7 @@ import Session from'../services/session';
 import Home from '../views/Home.vue';
 import Feed from '../views/Feed.vue';
 import CommunityFeed from '../views/CommunityFeed.vue';
-// import PersonalFeed from '../views/PersonalFeed.vue';
+import PersonalFeed from '../views/PersonalFeed.vue';
 
 const routes = [
   {
@@ -22,12 +22,12 @@ const routes = [
     name: 'CommunityFeed',
     component: CommunityFeed,
   },
-  // {
-  //   path: '/personalfeed',
-  //   name: 'PersonalFeed',
-  //   component: PeresonalFeed,
-  //   meta: { requiresLogin: true }
-  // },
+  {
+    path: '/personalfeed',
+    name: 'PersonalFeed',
+    component: PersonalFeed,
+    meta: { requiresLogin: true }
+  },
   {
     path: '/about',
     name: 'About',
@@ -40,9 +40,21 @@ const routes = [
     meta: { requiresLogin: true }
   },
   {
+    path: '/addfriend',
+    name: 'AddFriend',
+    component: () => import(/* webpackChunkName: "users" */ '../views/AddFriend.vue'),
+    meta: { requiresLogin: true }
+  },
+  {
     path: '/profile',
     name: 'Profile',
-    component: () => import(/* webpackChunkName: "users" */ '../views/Profile.vue'),
+    component: () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue'),
+    meta: { requiresLogin: true}
+  },
+  {
+    path: '/editprofile',
+    name: 'EditProfile',
+    component: () => import(/* webpackChunkName: "profile" */ '../views/EditProfile.vue'),
     meta: { requiresLogin: true}
   },
   {

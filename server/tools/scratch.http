@@ -19,7 +19,7 @@ Content-Type: application/json
     "src": "https://apod.nasa.gov/apod/image/2111/MilkyWayWaterfall_XieJie_960.jpg",
     "alt": "A Waterfall and the Milky Way",
     "caption": "A Waterfall and the Milky Way",
-    "user_handle": "@mgerosa",
+    "user_handle": "@mg",
     "isPublic": true
 }
 
@@ -48,9 +48,11 @@ POST http://localhost:3100/users/login
 Content-Type: application/json
 
     { 
-        "handle": "@mgerosa",
-        "password": "mypassword"
+        "handle": "@mg",
+        "password": "pass"
     }
+
 ###
- http://localhost:3100/users/seed
+ POST http://localhost:3100/posts/seed
+
 

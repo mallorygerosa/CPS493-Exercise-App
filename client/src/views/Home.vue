@@ -6,7 +6,7 @@
     >
       <section class="section">
         <h1 class="title is-1">
-          Welcome, <br />
+          <strong>Welcome,</strong> <br />
           To Your Own Personalized Community Activity Hub
         </h1>
         <h2 class="subtitle is-3">

@@ -1,7 +1,10 @@
 <template>
   <div class="feed">
     <h1 class="title has-text-centered">Friend Feed</h1>
-    <div class="section">
+    <h2 class="subtitle has-text-centered">
+      See what your friends are up to!
+    </h2>
+
       <div class="columns">
         <div class="column is-half is-offset-one-quarter">
           <post-edit :new-post="newPost" @add="add()" />
@@ -16,7 +19,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>

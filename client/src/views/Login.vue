@@ -100,11 +100,13 @@ export default {
     login() {
       this.Session.Login(this.email, this.password);
     },
+
     loginGoogle() {
       auth.signIn().then((x) => {
         console.log({ x });
       });
     },
+    
     checkLogin() {
       if (this.email && this.password) {
         return true;

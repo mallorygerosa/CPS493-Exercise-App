@@ -1,7 +1,7 @@
 <template>
   <div class="buttons" v-if="!Session.user">
     <router-link to="./Register">
-      <a class="button is-primary">
+      <a class="button is-primary" @click="register">
         <strong> Sign up </strong>
       </a>
     </router-link>
@@ -32,6 +32,11 @@ export default {
     login() {
       this.$router.push("/login");
     },
+
+        register() {
+      this.$router.push("/register");
+    },
+
   },
   computed: {
     name() {

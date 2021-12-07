@@ -108,7 +108,7 @@ module.exports.Add = async function Add(post) {
         throw {code: 422, msg: "Post must have an Owner"}
     }
     post.time = Date();
-    
+    console.log(post);
     const response = await collection.insertOne(post);
     
     post.id = response.insertedId;

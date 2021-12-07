@@ -1,8 +1,10 @@
 <template>
   <div class="friends">
-    <h1 class="subtitle is-2 has-text-centered">Friends</h1>
+    <h1 class="title has-text-centered">Friends</h1>
+    <h1 class="subtitle has-text-centered">View your friends profiles, and find new friends!</h1>
+
     <div class="container">
-      <router-link to="/AddFriend" class="button is-success" style = "is-centered">
+      <router-link to="AddFriend" class="button is-success" style="is-centered">
         Add Friend
       </router-link>
 
@@ -51,7 +53,7 @@
             </div>
 
             <!-- Column 2 -->
-            <div class="column is-one-half">
+            <!-- <div class="column is-one-half">
               <article class="media">
                 <div class="media-left">
                   <figure class="image is-96x96">
@@ -70,7 +72,8 @@
                   </p>
                 </div>
               </article>
-            </div>
+            </div> -->
+
           </div>
           </div>
         </div>
@@ -80,10 +83,9 @@
 </template>
 <script>
 import Session from "../services/session";
+import { GetByHandle } from '../services/users';
 
 export default {
-  name: {
-  },
   data: () => ({
     user: {
       firstName: null,
@@ -95,5 +97,8 @@ export default {
     },
     Session,
   }),
+      async mounted(){
+        this.list = await GetByHandle(this.user.handle);
+    }
 };
 </script>

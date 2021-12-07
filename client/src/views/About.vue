@@ -1,7 +1,7 @@
 <template>
     <div class="about">
         <h1 class="title has-text-centered">All Community Fitness Users</h1>
-        <h2 class="subtitle">Should be accesible only to admins</h2>
+        <h2 class="subtitle">Should be all friends of a user</h2>
 
         <table class="table is-striped is-hoverable is-fullwidth">
             <thead>
@@ -57,8 +57,6 @@
 <script>
 import { GetByHandle } from "../services/users"
 import Session from "../services/session"
-
-const user_handle = Session.user.handle;
 
 export default {
     data() {

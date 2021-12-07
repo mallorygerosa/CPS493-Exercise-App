@@ -1,6 +1,9 @@
 <template>
-  <div class="section">
+  <div class="personalfeed">
     <h1 class="title has-text-centered">Personal Feed</h1>
+    <h2 class="subtitle has-text-centered">
+      View your personal history!
+    </h2>
 
     <div class="columns">
       <div class="column is-half is-offset-one-quarter">

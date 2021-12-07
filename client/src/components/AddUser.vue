@@ -1,7 +1,4 @@
 <template>
-  <!-- <form class="card" @submit.prevent="$emit('add')">
-    <div class="container"> -->
-
   <div class="container">
     <div class="columns is-centered">
       <form class="box" @submit.prevent="$emit('add')">
@@ -94,7 +91,7 @@
           <button class="button is-primary">Submit</button>
         </div>
         <div class="control">
-          <button class="button is-primary is-light" type="reset">Cancel</button>
+          <router-link class="button is-light" to="./Home">Cancel</router-link>
         </div>
       </div>
     

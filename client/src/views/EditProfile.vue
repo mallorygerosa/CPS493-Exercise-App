@@ -2,8 +2,8 @@
   <form class="card" @submit.prevent="updateProfile()">
     <div class="card-content">
       <div class="content">
+        
         <div class="field">
-
           <label class="label">Change Profile Picture</label>
           <div class="control">
             <input
@@ -92,26 +92,28 @@
 
       </div>
     </div>
+      </div>
+    </div>
     <footer class="card-footer">
       <button class="button is-link card-footer-item" type="submit">
         Submit
       </button>
-      <button class="button is-link is-light card-footer-item" type="reset">
+      <router-link to="Profile" class="button is-link is-light card-footer-item">
         Cancel
-      </button>
+      </router-link>
     </footer>
   </form>
+
 </template>
 
 <script>
 import { Update } from "../services/users";
-import Session from "../services/session"
+import Session from "../services/session";
 import router from "../router";
-
 
 export default {
   data: () => ({
-    userUpdate: {
+    user: {
       firstName: null,
       lastName: null,
       handle: null,
@@ -123,7 +125,6 @@ export default {
     async updateProfile() {
       const response = await Update(Session.user._id, this.user);
       if (response) {
-
         this.$oruga.notification.open({
           message: "Successfully updated profile",
           variant: "info",
@@ -131,10 +132,10 @@ export default {
           closable: true,
         });
         router.push("/Profile");
-
       }
     },
   },
+  
 };
 </script>
 

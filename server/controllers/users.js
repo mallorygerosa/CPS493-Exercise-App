@@ -6,12 +6,12 @@ const app = express.Router();
 
 // Uses models/users functions
 app
-    // Get user by user ID
+    // Get all users
     .get("/", (req, res, next) =>{
         res.send(model.GetAll());
     })
 
-    // Get user ID by user
+    // Get user by user ID
     .get("/:user_id", (req, res, next) =>{
         model.Get(req.params.user_id)
            .then(user=>{ 
@@ -108,6 +108,14 @@ app
         model.Add(req.body)
             .then(user=>{
                 res.status(201).send(user);
+            })
+            .catch(next) 
+    })
+    // Begin with already added users
+    .post("/seed", (req, res, next) =>{
+        model.Seed()
+            .then(user=>{
+                res.status(201).send("Created");
             })
             .catch(next) 
     })

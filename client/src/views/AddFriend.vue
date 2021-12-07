@@ -32,9 +32,22 @@
 
 <script>
 export default {
-      name: 'AddFriend',
-        components: {
-  }
+    methods: {
+
+    // async addFriend() {
+    //   const response = await follow(newFriend, user);
+    //   if (response) {
+    //     this.$oruga.notification.open({
+    //       message: "Successfully submitted friend request",
+    //       variant: "info",
+    //       position: "top",
+    //       closable: true,
+    //     });
+    //     router.push("/Friends");
+    //   }
+    // },
+    
+  },
 
 }
 </script>
