@@ -91,7 +91,7 @@
           <button class="button is-primary">Submit</button>
         </div>
         <div class="control">
-          <router-link class="button is-light" to="./Home">Cancel</router-link>
+          <router-link class="button is-light" to="/">Cancel</router-link>
         </div>
       </div>
     

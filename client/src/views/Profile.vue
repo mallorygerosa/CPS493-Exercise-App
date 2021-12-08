@@ -9,27 +9,23 @@
               <figure class="image is-128x128 is-inline-block">
                 <img
                   class="is-rounded center"
-                  src="{{user.pic}}"
+                  src="{{this.Session.user.pic}}"
                   alt="User avatar"
                 />
               </figure>
               <p class="title is-3">
-                {{ user.firstName + " " + user.lastName }}
+                {{ name }}
               </p>
               <p class="subtitle is-4">{{ user.handle }}</p>
 
-              <router-link
-                to="EditProfile"
-                class="button is-success"
-                style="is-centered"
-              >
-                Edit Profile
-              </router-link>
+      <router-link to="EditProfile" class="button is-success" style="is-centered">
+        Add Friend
+      </router-link>
 
               <p class="title is-5">Emails: {{ user.emails }}</p>
-              <div class="email" v-for="(e, i) in user.emails" :key="e.email">
+              <!-- <div class="email" v-for="(e, i) in user.emails" :key="e.email">
                 <email :email="e" @remove="remove(e, i)" />
-              </div>
+              </div> -->
 
               <p class="title is-5">Friends:</p>
               <div
@@ -62,5 +58,12 @@ export default {
     },
     Session,
   }),
+
+  computed: {
+    name() {
+      return this.Session.user.firstName + " " + this.Session.user.lastName;
+    },
+  },
+
 };
 </script>

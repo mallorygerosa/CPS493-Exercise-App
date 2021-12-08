@@ -18,6 +18,7 @@
 <script>
 import { Add } from "../services/users";
 import AddUser from "../components/AddUser";
+import router from "../router";
 
 export default {
   components: {
@@ -64,8 +65,10 @@ export default {
           position: "top",
           closable: true,
         });
+      this.Session.Login(this.email, this.password);
       }
-
+      
+        router.push("/");
     },
 
   },

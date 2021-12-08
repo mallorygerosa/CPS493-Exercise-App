@@ -1,5 +1,5 @@
 <template>
-  <form class="card" @submit.prevent="updateProfile()">
+  <form class="card" @submit.prevent="submit()">
     <div class="card-content">
       <div class="content">
         
@@ -113,17 +113,18 @@ import router from "../router";
 
 export default {
   data: () => ({
-    user: {
-      firstName: null,
-      lastName: null,
-      handle: null,
-      pic: null,
+    updatedUser: {
+      firstName: this.Session.user.firstName,
+      lastName: this.Session.user.lastName,
+      handle: this.Session.user.handle,
+      pic: this.Session.user.pic,
     },
+    Session,
   }),
 
   methods: {
-    async updateProfile() {
-      const response = await Update(Session.user._id, this.user);
+    async submit() {
+      const response = await Update(Session.user._id, this.updatedUser);
       if (response) {
         this.$oruga.notification.open({
           message: "Successfully updated profile",
