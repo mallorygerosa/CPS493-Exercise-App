@@ -10,7 +10,7 @@
               class="input"
               type="url"
               placeholder="Picture URL"
-              v-model="user.pic"
+              v-model="updatedUser.pic"
             />
           </div>
         </div>
@@ -22,7 +22,7 @@
               class="input"
               type="text"
               placeholder="John"
-            v-model="user.firstName"
+            v-model="updatedUser.firstName"
             />
           </div>
 
@@ -33,7 +33,7 @@
               class="input"
               type="text"
               placeholder="Smith"
-            v-model="user.lastName"
+            v-model="updatedUser.lastName"
             />
           </div>
 
@@ -44,7 +44,7 @@
               class="input is-success"
               type="text"
               placeholder="@Username"
-            v-model="user.handle"
+            v-model="updatedUser.handle"
             />
           </div>
           <!-- Add checking mechanism -->
@@ -59,7 +59,7 @@
               class="input"
               type="email"
               placeholder="email@example.com"
-              v-model="user.email"
+              v-model="updatedUser.email"
             />
           </div>
         </div>
@@ -71,7 +71,7 @@
               class="input"
               type="New password"
               placeholder="********"
-             v-model="user.password"
+             v-model="updatedUser.password"
             />
           </div>
         </div>
@@ -114,12 +114,11 @@ import router from "../router";
 export default {
   data: () => ({
     updatedUser: {
-      firstName: this.Session.user.firstName,
-      lastName: this.Session.user.lastName,
-      handle: this.Session.user.handle,
-      pic: this.Session.user.pic,
+      firstName: Session.user.firstName,
+      lastName: Session.user.lastName,
+      handle: Session.user.handle,
+      pic: Session.user.pic,
     },
-    Session,
   }),
 
   methods: {

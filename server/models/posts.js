@@ -70,7 +70,6 @@ module.exports.GetWall = function GetWall(handle) {
     return collection.aggregate(addOwnerPipeline).match({ user_handle: handle }).toArray();
 }
 
-// Get all posts by user and friends
 module.exports.GetFeed_ = function GetFeed_(handle) {
     //  The "SQL" way to do things
     const query = Users.collection.aggregate([

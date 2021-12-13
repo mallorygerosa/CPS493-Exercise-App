@@ -11,7 +11,7 @@ export function GetByHandle(handle) { return  api('users/byhandle/' + handle); }
 
 // Add new user
 export function Add(user) {
-     return api('users/register', user);
+    return api('users/register', user);
 }
 
 // Update user

@@ -9,32 +9,29 @@
               <figure class="image is-128x128 is-inline-block">
                 <img
                   class="is-rounded center"
-                  src="{{this.Session.user.pic}}"
+                  src="{{ pic }}"
                   alt="User avatar"
                 />
               </figure>
               <p class="title is-3">
                 {{ name }}
               </p>
-              <p class="subtitle is-4">{{ user.handle }}</p>
+              <p class="subtitle is-4">{{ handle }} <br /></p>
 
-      <router-link to="EditProfile" class="button is-success" style="is-centered">
-        Add Friend
-      </router-link>
+              <router-link
+                to="EditProfile"
+                class="button is-success"
+                style="is-centered"
+              >
+                Edit Profile
+              </router-link>
 
-              <p class="title is-5">Emails: {{ user.emails }}</p>
-              <!-- <div class="email" v-for="(e, i) in user.emails" :key="e.email">
-                <email :email="e" @remove="remove(e, i)" />
+              <p class="title is-5">Emails: {{ toString(emails) }} </p>
+              <!-- <div class="email" v-for="(e) in user.emails" :key="e.email">
               </div> -->
 
               <p class="title is-5">Friends:</p>
-              <div
-                class="friend"
-                v-for="(f, i) in user.following"
-                :key="f.handle"
-              >
-                <friend :friend="f" @remove="remove(f, i)" />
-              </div>
+              
             </div>
           </div>
         </div>
@@ -52,8 +49,7 @@ export default {
       firstName: null,
       lastName: null,
       handle: null,
-      emails: null,
-      following: [],
+      emails: [],
       pic: "https://bulma.io/images/placeholders/128x128.png",
     },
     Session,
@@ -63,7 +59,15 @@ export default {
     name() {
       return this.Session.user.firstName + " " + this.Session.user.lastName;
     },
+    handle() {
+      return Session.user.handle;
+    },
+    pic() {
+      return Session.user.pic;
+    },
+    emails() {
+      return Session.user.emails;
+    },
   },
-
 };
 </script>

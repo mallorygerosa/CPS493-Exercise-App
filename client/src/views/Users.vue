@@ -56,25 +56,26 @@
 
 <script>
 import { GetAll } from "../services/users";
+import Session from "../services/session";
 import router from "../router";
 
 export default {
   data() {
     return {
       list: [],
+      Session,
     };
   },
   async mounted() {
     this.list = await GetAll();
-
     if (!this.Session.user.isAdmin) {
       this.$oruga.notification.open({
         message: "Only admins can view this page",
-        variant: "info",
+        variant: "danger",
         position: "top",
         closable: true,
       });
-      router.push("/Home");
+      router.push("/");
     }
   },
 };

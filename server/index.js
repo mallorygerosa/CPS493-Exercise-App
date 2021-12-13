@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 require('dotenv').config();
 
+console.log(`The best class at New Paltz is ${process.env.BEST_CLASS}`);
+
 const usersController = require('./controllers/users');
 const postsController = require('./controllers/posts');
 

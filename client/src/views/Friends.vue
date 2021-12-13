@@ -11,7 +11,7 @@
       <div class="card">
         <div class="card-content">
           <div class="columns is-multiline">
-            <!-- Column 1 -->
+
             <div class="column is-one-half">
               <article class="media">
                 <div class="media-left">
@@ -24,10 +24,10 @@
                   </figure>
                 </div>
                 <div class="media-content">
-                  <p class="title is-4">Name</p>
-                  <p class="subtitle is-5">Username</p>
+                  <p class="title is-4">A Friend</p>
+                  <p class="subtitle is-5">@FriendOne</p>
                   <p class="subtitle is-6 has-text-left">
-                    <a id="launch_modal">View Profile</a>
+                    <a>View Profile</a>
                   </p>
                 </div>
               </article>
@@ -43,10 +43,10 @@
                   </figure>
                 </div>
                 <div class="media-content">
-                  <p class="title is-4">Name</p>
-                  <p class="subtitle is-5">Username</p>
+                  <p class="title is-4">Another Friend</p>
+                  <p class="subtitle is-5">@FriendTwo</p>
                   <p class="subtitle is-6 has-text-left">
-                    <a id="launch_modal">View Profile</a>
+                    <a>View Profile</a>
                   </p>
                 </div>
               </article>
