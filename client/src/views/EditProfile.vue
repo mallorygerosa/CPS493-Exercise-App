@@ -95,10 +95,10 @@
       </div>
     </div>
     <footer class="card-footer">
-      <button class="button is-link card-footer-item" type="submit">
+      <button class="button is-success card-footer-item" type="submit">
         Submit
       </button>
-      <router-link to="Profile" class="button is-link is-light card-footer-item">
+      <router-link to="Profile" class="button is-success is-light card-footer-item">
         Cancel
       </router-link>
     </footer>
@@ -127,7 +127,7 @@ export default {
       if (response) {
         this.$oruga.notification.open({
           message: "Successfully updated profile",
-          variant: "info",
+          variant: "success",
           position: "top",
           closable: true,
         });

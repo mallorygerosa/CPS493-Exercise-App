@@ -1,24 +1,22 @@
 <template>
   <div class="feed">
     <h1 class="title has-text-centered">Friend Feed</h1>
-    <h2 class="subtitle has-text-centered">
-      See what your friends are up to!
-    </h2>
+    <h2 class="subtitle has-text-centered">See what your friends are up to!</h2>
 
-      <div class="columns">
-        <div class="column is-half is-offset-one-quarter">
-          <post-edit :new-post="newPost" @add="add()" />
+    <div class="columns">
+      <div class="column is-half is-offset-one-quarter">
+        <post-edit :new-post="newPost" @add="add()" />
 
-          <div class="post" v-for="(p, i) in posts" :key="p.src">
-            <post :post="p" @remove="remove(p, i)" />
-          </div>
-        </div>
-
-        <div class="column">
-          <post :post="newPost" />
+        <div class="post" v-for="(p, i) in posts" :key="p.src">
+          <post :post="p" @remove="remove(p, i)" />
         </div>
       </div>
+
+      <div class="column">
+        <post :post="newPost" />
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -37,7 +35,7 @@ export default {
     Post,
     PostEdit,
   },
-  
+
   data: () => ({
     posts: [],
     newPost: newPost(),

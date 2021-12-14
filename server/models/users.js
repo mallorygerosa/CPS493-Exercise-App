@@ -82,7 +82,7 @@ module.exports.Add = async function Add(user) {
     if (!user.firstName) {
         return Promise.reject({
             code: 422,
-            msg: "First Name is required"
+            msg: "Username is required"
         })
     }
 

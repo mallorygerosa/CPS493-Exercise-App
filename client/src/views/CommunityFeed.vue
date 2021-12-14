@@ -5,20 +5,20 @@
       See what's going on in your community!
     </h2>
 
-      <div class="columns">
-        <div class="column is-half is-offset-one-quarter">
-          <post-edit :new-post="newPost" @add="add()" />
+    <div class="columns">
+      <div class="column is-half is-offset-one-quarter">
+        <post-edit :new-post="newPost" @add="add()" />
 
-          <div class="post" v-for="(p, i) in posts" :key="p.src">
-            <post :post="p" @remove="remove(p, i)" />
-          </div>
-        </div>
-
-        <div class="column">
-          <post :post="newPost" />
+        <div class="post" v-for="(p, i) in posts" :key="p.src">
+          <post :post="p" @remove="remove(p, i)" />
         </div>
       </div>
+
+      <div class="column">
+        <post :post="newPost" />
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -31,6 +31,7 @@ const newPost = () => ({
   user: Session.user,
   user_handle: Session.user.handle,
 });
+
 export default {
   components: {
     Post,
@@ -40,9 +41,11 @@ export default {
     posts: [],
     newPost: newPost(),
   }),
+
   async mounted() {
     this.posts = await GetAll(Session.user.handle);
   },
+
   methods: {
     async remove(post, i) {
       console.log({ post });
@@ -51,6 +54,7 @@ export default {
         this.posts.splice(i, 1);
       }
     },
+
     async add() {
       const response = await Add(this.newPost);
       console.log({ response });

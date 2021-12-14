@@ -19,7 +19,7 @@
         <div class="field">
           <div class="control">
             <div class="buttons is-grouped is-centered">
-              <button class="button is-success">Add</button>
+              <button class="button is-success" @click="addFriend">Add</button>
               <router-link class="button is-light" to="./Friends">Cancel</router-link>
             </div>
           </div>
@@ -34,18 +34,18 @@
 export default {
     methods: {
 
-    // async addFriend() {
-    //   const response = await follow(newFriend, user);
-    //   if (response) {
-    //     this.$oruga.notification.open({
-    //       message: "Successfully submitted friend request",
-    //       variant: "info",
-    //       position: "top",
-    //       closable: true,
-    //     });
-    //     router.push("/Friends");
-    //   }
-    // },
+    async addFriend() {
+      // const response = await Follow(newFriend, user);
+      // if (response) {
+      //   this.$oruga.notification.open({
+      //     message: "Successfully submitted friend request",
+      //     variant: "info",
+      //     position: "top",
+      //     closable: true,
+      //   });
+      //   router.push("/Friends");
+      // }
+    },
     
   },
 

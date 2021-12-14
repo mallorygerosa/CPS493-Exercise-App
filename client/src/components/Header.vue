@@ -27,7 +27,7 @@
       </div>
 
       <div class="navbar-menu" :class="{ 'is-active': isActive }">
-        <div class="navbar-start" style="font-size: 20px">
+        <div class="navbar-start" style="font-size: 22px">
           <router-link class="navbar-item" is-tab to="/" exact>
             Home
           </router-link>
@@ -43,7 +43,7 @@
               </router-link>
               <router-link class="navbar-item" to="/Feed">
                 Friend Feed
-              </router-link>              
+              </router-link>
               <router-link class="navbar-item" to="/CommunityFeed">
                 Community Feed
               </router-link>
@@ -56,22 +56,18 @@
             </router-link>
 
             <div class="navbar-dropdown">
-              <router-link class="navbar-item" to="/Friends"> View Friends </router-link>
-              <!-- <router-link class="navbar-item" to="/AddFriend"> Add Friend </router-link> -->
+              <router-link class="navbar-item" to="/Friends">
+                View Friends
+              </router-link>
               <router-link class="navbar-item" to="/Users">
                 View All Users
               </router-link>
             </div>
           </div>
 
-          <router-link class="navbar-item" is-tab to="/about">
-            About
-          </router-link>
-
           <router-link class="navbar-item" is-tab to="/profile">
             Profile
           </router-link>
-
         </div>
 
         <div class="navbar-end">

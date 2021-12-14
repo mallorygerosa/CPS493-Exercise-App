@@ -1,104 +1,42 @@
 <template>
   <div class="friends">
-    <h1 class="title has-text-centered">Friends</h1>
-    <h1 class="subtitle has-text-centered">View your friends profiles, and find new friends!</h1>
+    <div class="container has-text-centered">
+      <h1 class="title is-2">Friends</h1>
+      <h1 class="subtitle">
+        View your friends profiles and find new people to connect with!
+      </h1>
 
-    <div class="container">
-      <router-link to="AddFriend" class="button is-success" style="is-centered">
+      <router-link to="AddFriend" class="button is-success">
         Add Friend
       </router-link>
-
-      <div class="card">
-        <div class="card-content">
-          <div class="columns is-multiline">
-
-            <div class="column is-one-half">
-              <article class="media">
-                <div class="media-left">
-                  <figure class="image is-96x96">
-                    <img
-                      class="is-rounded"
-                      src="https://bulma.io/images/placeholders/96x96.png"
-                      alt="Placeholder"
-                    />
-                  </figure>
-                </div>
-                <div class="media-content">
-                  <p class="title is-4">A Friend</p>
-                  <p class="subtitle is-5">@FriendOne</p>
-                  <p class="subtitle is-6 has-text-left">
-                    <a>View Profile</a>
-                  </p>
-                </div>
-              </article>
-
-              <article class="media">
-                <div class="media-left">
-                  <figure class="image is-96x96">
-                    <img
-                      class="is-rounded"
-                      src="https://bulma.io/images/placeholders/96x96.png"
-                      alt="Placeholder"
-                    />
-                  </figure>
-                </div>
-                <div class="media-content">
-                  <p class="title is-4">Another Friend</p>
-                  <p class="subtitle is-5">@FriendTwo</p>
-                  <p class="subtitle is-6 has-text-left">
-                    <a>View Profile</a>
-                  </p>
-                </div>
-              </article>
-            </div>
-
-            <!-- Column 2 -->
-            <!-- <div class="column is-one-half">
-              <article class="media">
-                <div class="media-left">
-                  <figure class="image is-96x96">
-                    <img
-                      class="is-rounded"
-                      src="https://bulma.io/images/placeholders/96x96.png"
-                      alt="Placeholder"
-                    />
-                  </figure>
-                </div>
-                <div class="media-content">
-                  <p class="title is-4">Name</p>
-                  <p class="subtitle is-5">Username</p>
-                  <p class="subtitle is-6 has-text-left">
-                    <a id="launch_modal">View Profile</a>
-                  </p>
-                </div>
-              </article>
-            </div> -->
-
-          </div>
-          </div>
-        </div>
-      </div>
     </div>
-
+    <div class="card card-content">
+      <FriendList />
+    </div>
+  </div>
 </template>
 <script>
 import Session from "../services/session";
-import { GetByHandle } from '../services/users';
+import { GetByHandle } from "../services/users";
+import FriendList from "../components/FriendList.vue";
 
 export default {
-  data: () => ({
-    user: {
-      firstName: null,
-      lastName: null,
-      handle: null,
-      emails: [],
-      follows: [],
-      pic: 'https://bulma.io/images/placeholders/128x128.png',
-    },
-    Session,
-  }),
-      async mounted(){
-        this.list = await GetByHandle(this.user.handle);
+  data() {
+    return {
+      list: [],
+      friendList: [],
+      Session,
+    };
+  },
+  components: {
+    FriendList,
+  },
+
+  async mounted() {
+    this.list = await GetByHandle(Session.user.handle);
+    for (var i = 0; i < this.list.following.length; i++) {
+      this.friendList.push(await GetByHandle(this.list.following[i].handle));
     }
+  },
 };
 </script>

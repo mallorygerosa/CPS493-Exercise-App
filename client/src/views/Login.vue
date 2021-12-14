@@ -39,14 +39,7 @@
             <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>
-            <span v-if="errors.length == 2" id="error-message">{{
-              errors[1]
-            }}</span>
-            <span
-              v-else-if="errors[0] == 'Password is required'"
-              id="error-message"
-              >{{ "Password is required" }}</span
-            >
+            
           </p>
         </div>
 
@@ -54,7 +47,7 @@
           <div class="buttons is-grouped is-centered">
 
             <div class="control">
-            <button class="button is-success">
+            <button class="button is-success" @click=checkLogin()>
             Login
             </button>
             </div>

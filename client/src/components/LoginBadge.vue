@@ -11,10 +11,10 @@
 
   <div v-else>
     <router-link is-tab to="/profile">
-    Hello {{ name }}
-    <span class="icon is-medium is-left">
-      <i class="fas fa-user"></i>
-    </span>
+      Hello {{ name }}
+      <span class="icon is-medium is-left">
+        <i class="fas fa-user"></i>
+      </span>
     </router-link>
   </div>
 </template>
@@ -33,10 +33,9 @@ export default {
       this.$router.push("/login");
     },
 
-        register() {
+    register() {
       this.$router.push("/register");
     },
-
   },
   computed: {
     name() {

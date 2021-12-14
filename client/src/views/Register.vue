@@ -61,7 +61,7 @@ export default {
       if (response) {
         this.$oruga.notification.open({
           message: "Welcome to Community Fitness",
-          variant: "info",
+          variant: "success",
           position: "top",
           closable: true,
         });

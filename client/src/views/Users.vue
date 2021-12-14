@@ -1,7 +1,7 @@
 <template>
   <div class="about">
-    <h1 class="title">Users Page</h1>
-    <h2 class="subtitle">Should be accesible only to admins</h2>
+    <h1 class="title has-text-centered">Users Page</h1>
+    <h2 class="subtitle has-text-centered">Only accesible only to admins</h2>
 
     <table class="table is-striped is-hoverable is-fullwidth">
       <thead>
@@ -51,6 +51,7 @@
         </tr>
       </tbody>
     </table>
+
   </div>
 </template>
 
@@ -60,6 +61,7 @@ import Session from "../services/session";
 import router from "../router";
 
 export default {
+
   data() {
     return {
       list: [],

@@ -1,38 +1,33 @@
 <template>
   <div class="profile">
-    <h1 class="title has-text-centered">Profile</h1>
+    <h1 class="title is-2 has-text-centered">Profile</h1>
     <div class="container">
-      <div class="card">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content has-text-centered">
-              <figure class="image is-128x128 is-inline-block">
-                <img
-                  class="is-rounded center"
-                  src="{{ pic }}"
-                  alt="User avatar"
-                />
-              </figure>
-              <p class="title is-3">
-                {{ name }}
-              </p>
-              <p class="subtitle is-4">{{ handle }} <br /></p>
+      <div class="card card-content">
+        <div class="media">
+          <div class="media-content has-text-centered">
+            <figure class="image is-inline-block">
+              <img class="is-rounded is-128x128" :src="pic" alt="User avatar" />
+            </figure>
+            <p class="title is-3">
+              {{ name }}
+            </p>
+            <p class="subtitle is-4">{{ handle }} <br /></p>
 
-              <router-link
-                to="EditProfile"
-                class="button is-success"
-                style="is-centered"
-              >
-                Edit Profile
-              </router-link>
+            <p class="title is-5">Emails: {{ emails.toString() }}</p>
 
-              <p class="title is-5">Emails: {{ toString(emails) }} </p>
-              <!-- <div class="email" v-for="(e) in user.emails" :key="e.email">
-              </div> -->
+            <router-link
+              to="EditProfile"
+              class="button is-success is-medium"
+              style="is-right"
+            >
+              Edit Profile
+            </router-link>
 
-              <p class="title is-5">Friends:</p>
-              
-            </div>
+            <p class="title is-3">
+              <br />
+              {{ Session.user.following.length }} Friend(s)
+            </p>
+            <FriendList />
           </div>
         </div>
       </div>
@@ -42,6 +37,8 @@
 
 <script>
 import Session from "../services/session";
+import { GetByHandle } from "../services/users";
+import FriendList from "../components/FriendList.vue";
 
 export default {
   data: () => ({
@@ -50,14 +47,17 @@ export default {
       lastName: null,
       handle: null,
       emails: [],
+      following: [],
       pic: "https://bulma.io/images/placeholders/128x128.png",
     },
     Session,
   }),
-
+  components: {
+    FriendList,
+  },
   computed: {
     name() {
-      return this.Session.user.firstName + " " + this.Session.user.lastName;
+      return Session.user.firstName + " " + Session.user.lastName;
     },
     handle() {
       return Session.user.handle;
@@ -68,6 +68,20 @@ export default {
     emails() {
       return Session.user.emails;
     },
+    following() {
+      return Session.user.following;
+    },
+    friends() {
+      return this.friendList.toString();
+    },
+  },
+
+  async mounted() {
+    for (var i = 0; i < Session.user.following.length; i++) {
+      this.friendList.push(
+        await GetByHandle(Session.user.following[i].handle).firstName
+      );
+    }
   },
 };
 </script>
