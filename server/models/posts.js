@@ -28,7 +28,7 @@ const list = [
         alt: "Another another placeholder image",
         caption: "Lorem Ipsum again again",
         time: Date(),
-        user_handle: "@mgerosa",
+        user_handle: "@mg",
         isPublic: true,
     },
     { 
@@ -36,7 +36,7 @@ const list = [
         alt: "Another another another placeholder image",
         caption: "Lorem Ipsum again again again",
         time: Date(),
-        user_handle: "@mgerosa",
+        user_handle: "@mg",
         isPublic: true,
     },
     { 
@@ -44,7 +44,7 @@ const list = [
         alt: "Another^2 placeholder image",
         caption: "Lorem Ipsum again^2",
         time: Date(),
-        user_handle: "@mgerosa",
+        user_handle: "@mg",
         isPublic: false,
     },
 ];

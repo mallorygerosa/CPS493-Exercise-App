@@ -13,7 +13,7 @@
             </p>
             <p class="subtitle is-4">{{ handle }} <br /></p>
 
-            <p class="title is-5">Emails: {{ emails.toString() }}</p>
+            <p class="title is-5">Email(s): {{ emails.toString() }}</p>
 
             <router-link
               to="EditProfile"

@@ -88,7 +88,7 @@
 
       <div class="buttons is-grouped is-centered" id="buttons">
         <div class="control">
-          <button class="button is-primary">Submit</button>
+          <button class="button is-success">Submit</button>
         </div>
         <div class="control">
           <router-link class="button is-light" to="/">Cancel</router-link>

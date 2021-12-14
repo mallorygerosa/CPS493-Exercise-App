@@ -50,7 +50,7 @@ const list = [{
         firstName: 'John',
         lastName: 'Doe',
         handle: '@johnny',
-        pic: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.deviantart.com%2Fkarmaanddestiny%2Fart%2FDefault-user-icon-4-858661084&psig=AOvVaw2Gj6XnmTTsBn6ZRHn5Ok_w&ust=1638558068218000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNj0-c_mxfQCFQAAAAAdAAAAABAI',
+        pic: 'http://clipart-library.com/image_gallery/n755223.png',
         password: 'Him',
         isAdmin: false,
         emails: [

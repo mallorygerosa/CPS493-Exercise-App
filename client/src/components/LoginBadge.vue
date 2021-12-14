@@ -1,7 +1,7 @@
 <template>
   <div class="buttons" v-if="!Session.user">
     <router-link to="./Register">
-      <a class="button is-primary" @click="register">
+      <a class="button is-success" @click="register">
         <strong> Sign up </strong>
       </a>
     </router-link>

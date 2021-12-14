@@ -1,4 +1,4 @@
-<template>
+<template class>
   <div class="header">
     <h1 class="title is-1 has-text-centered" style="margin: 15px 0px 0px 0px">
       <strong>Community Fitness</strong>
@@ -79,6 +79,7 @@
     </nav>
   </div>
 </template>
+
 <script>
 import LoginBadge from "./LoginBadge";
 
@@ -93,3 +94,9 @@ export default {
   },
 };
 </script>
+
+<style>
+/* div.header{
+background-color: darkgreen;
+} */
+</style>
