@@ -29,11 +29,6 @@ const routes = [
     meta: { requiresLogin: true }
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-},
-  {
     path: '/friends',
     name: 'Friends',
     component: () => import(/* webpackChunkName: "users" */ '../views/Friends.vue'),

@@ -32,7 +32,11 @@
             Home
           </router-link>
 
-          <div class="navbar-item has-dropdown is-hoverable">
+          <router-link class="navbar-item" is-tab to="/Feed" exact>
+            Activity Feed
+          </router-link>
+
+          <!-- <div class="navbar-item has-dropdown is-hoverable">
             <router-link class="navbar-link" is-tab to="/Feed">
               Activity Feed
             </router-link>
@@ -48,7 +52,7 @@
                 Community Feed
               </router-link>
             </div>
-          </div>
+          </div> -->
 
           <div class="navbar-item has-dropdown is-hoverable">
             <router-link class="navbar-link" is-tab to="/Friends">

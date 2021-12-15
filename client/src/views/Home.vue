@@ -13,7 +13,7 @@
           Connect with your community, your friends, and yourself, all in one place. 
         </h2>
         <router-link to="/Feed">
-          <button class="button is-primary is-light">Get Started</button>
+          <button class="button is-primary is-light is-medium">Get Started</button>
         </router-link>
       </section>
     </div>
