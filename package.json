@@ -2,10 +2,7 @@
   "name": "cps493-classwork",
   "version": "1.0.0",
   "description": "https://github.com/mallorygerosa/CPS493-Exercise-App.git",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --watch server server/index",
@@ -18,14 +15,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.0.1",
-    "bson": "^4.5.4",
-    "dotenv": "^10.0.0",
     "express": "4.17.1",
-    "lodash": "^4.17.21",
-    "mongodb": "^4.2.0"
+    "mongodb": "^4.1.4",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.12"
   }
 }

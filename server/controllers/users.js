@@ -6,11 +6,9 @@ const app = express.Router();
 
 app
     .get("/", (req, res, next) =>{
-        model.GetAll()
-        .then(user=>{ 
-            res.send(user);
-        })
-        .catch(next) 
+        model   .GetAll()
+                .then( x=> res.send(x) )
+                .catch(next) 
     })
     .get("/:user_id", (req, res, next) =>{
         model.Get(req.params.user_id)
