@@ -7,6 +7,8 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 
 const isConnected = client.connect();
 
+isConnected.catch(err=> console.log({ err }))
+
 module.exports = {
     client, isConnected
 }
